@@ -13,6 +13,6 @@ public class HelloWorldTest {
 
     @Test
     public void testHelloWorld() throws Exception{
-        assertEquals("Hello World", HelloWorld.hello());
+        assertEquals("Hello World NIGUUUHHH", HelloWorld.hello());
     }
 }

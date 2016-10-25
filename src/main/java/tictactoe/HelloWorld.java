@@ -5,7 +5,6 @@ package tictactoe;
  */
 public class HelloWorld {
     public static String hello(){
-        System.out.println("Hello World");
-        return "Hello World";
+        return "Hello World NIGUUUHHH";
     }
 }
