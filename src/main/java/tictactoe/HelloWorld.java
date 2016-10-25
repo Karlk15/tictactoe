@@ -5,6 +5,6 @@ package tictactoe;
  */
 public class HelloWorld {
     public static String hello(){
-        return "Hello World NIGUUUHHH";
+        return "Hello World NIGUUUHHH!!!!";
     }
 }
