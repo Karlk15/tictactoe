@@ -10,7 +10,7 @@ public class PlayServiceTest {
     @Test
     public void testHelloWorld()
     {
-        assertEquals("Hello World", PlayService.TravisTester());
+        assertEquals("Hello Orvar", PlayService.TravisTester());
     }
 
 }
