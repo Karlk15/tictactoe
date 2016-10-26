@@ -3,14 +3,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="createEmptyContentRootDirectories" value="true" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/plugins/gradle" />
-        <option name="gradleJvm" value="1.8" />
+        <option name="externalProjectPath" value="$USER_HOME$/Dropbox/HR/Hugbúnaðarfræði/Seinni hluti (hugbúnaðarverkfræði)/Síðannarverkefni/tictactoe-master" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
+            <option value="$USER_HOME$/Dropbox/HR/Hugbúnaðarfræði/Seinni hluti (hugbúnaðarverkfræði)/Síðannarverkefni/tictactoe-master" />
           </set>
         </option>
       </GradleProjectSettings>
