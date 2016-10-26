@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="business.layer.PlayServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-10-26T20:06:03" hostname="LAPTOP-MQC55U5F" time="0.0">
+  <properties/>
+  <testcase name="testHelloWorld" classname="business.layer.PlayServiceTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
