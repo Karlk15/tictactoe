@@ -7,7 +7,7 @@ public class PlayService {
 
     public static String TravisTester()
     {
-        return "Hello jon";
+        return "Hello World";
     }
 
 }
