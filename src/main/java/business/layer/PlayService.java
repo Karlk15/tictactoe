@@ -11,9 +11,5 @@ public class PlayService {
         return "Hello World";
     }
 
-    public static String travisFailedTest()
-    {
-        return "Lorem Ipsum";
-    }
 
 }

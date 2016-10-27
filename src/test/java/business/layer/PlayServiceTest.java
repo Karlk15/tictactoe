@@ -15,9 +15,4 @@ public class PlayServiceTest {
         assertEquals("Hello World", PlayService.TravisTester());
     }
 
-    @Test
-    public void travisFailedTest()
-    {
-        assertEquals("Expected Text", PlayService.travisFailedTest());
-    }
 }
