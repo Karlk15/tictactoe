@@ -27,4 +27,10 @@ public class PlayService
         return board.get(next);
     }
 
+    public int PlayTurn()
+    {
+
+    }
+
+
 }
