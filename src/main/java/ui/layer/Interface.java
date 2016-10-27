@@ -9,9 +9,10 @@ import java.io.IOException;
  */
 public class Interface {
 
-    private PlayService playService;
+    private static PlayService playService;
 
     public static void main(String args[]){
+        playService = new PlayService();
         menu();
     }
 
@@ -33,6 +34,11 @@ public class Interface {
             }
             else{
                 System.out.println("Enter a valid input, please.");
+            }
+            System.out.println("Do you want to play another game? (y/n)");
+            String in = System.in.toString();
+            if (in != "y|Y"){
+                cont = false;
             }
         }
 
