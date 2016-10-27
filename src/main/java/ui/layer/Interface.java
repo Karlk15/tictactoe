@@ -2,8 +2,6 @@ package ui.layer;
 
 import business.layer.PlayService;
 
-import java.io.IOException;
-
 /**
  * Created by Hrafnkell on 26/10/2016.
  */
@@ -42,10 +40,6 @@ public class Interface {
             }
         }
 
-
-    }
-
-    public static void twoPlayer(){
 
     }
 
