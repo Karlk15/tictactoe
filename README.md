@@ -1,3 +1,3 @@
-Tic Tac Toe project in the T-303-HUGB software development course in Reykjavík University.
+Tic Tac Toe project in the T-303-HUGB software development course at Reykjavík University.
 
-The project is focused on used proper development techniques rather than making a good game.
+The project is focused on using proper development techniques rather than making a good game.
