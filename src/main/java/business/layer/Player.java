@@ -14,7 +14,7 @@ public class Player
     {
         if(!isHuman)
         {
-            playerName = "DickButt";
+            playerName = "Computer McConaughey";
         }
         else
         {
@@ -24,4 +24,18 @@ public class Player
         humanPlayer = isHuman;
     }
 
+    public String getPlayerName()
+    {
+        return playerName;
+    }
+
+    public int getPlayerNumber()
+    {
+        return playerNumber;
+    }
+
+    public boolean isHumanPlayer()
+    {
+        return humanPlayer;
+    }
 }
