@@ -13,3 +13,7 @@ hs_err_pid*
 
 # idea files #
 .idea/workspace.xml
+
+# Directories #
+build/*
+.gradle/*
