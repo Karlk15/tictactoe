@@ -29,7 +29,7 @@ public class PlayService
 
     public int PlayTurn()
     {
-
+        return 0;
     }
 
 
