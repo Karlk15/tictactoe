@@ -8,29 +8,33 @@ import java.util.Scanner;
  */
 public class PlayService
 {
-    private ArrayList<String>board;
+    public enum playerChar {
+        X, O
+    }
+
+    private String[] board;
+    private playerChar currentPlayer;
 
     public PlayService()
     {
-        board = new ArrayList<>();
+        board = new String[9];
+        currentPlayer = currentPlayer.X;
         for(int i = 0; i < 9; i++)
-            board.add(Integer.toString(i+1));
+            board[i] = Integer.toString(i+1);
     }
 
     public int getSize()
     {
-        return board.size();
+        return 9;
     }
 
     public String getNext(int next)
     {
-        return board.get(next);
+        return board[next];
     }
 
-    public int PlayTurn()
+    public int PlayTurn(char input)
     {
         return 0;
     }
-
-
 }
