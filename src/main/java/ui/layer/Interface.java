@@ -1,27 +1,18 @@
 package ui.layer;
 
-import business.layer.PlayService;
-
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.concurrent.SynchronousQueue;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
  */
 public class Interface {
 
-    /**
-     * Need to figure out where what class the main function should be.
-     */
-    /*public static void main(String args[]){
-        playService = new PlayService();
-        System.out.println("    Welcome to tic-tac-toe!"); //temp location for this print
-        mainMenu();
-    }*/
 
-    public static String mainMenu(){
+    public String printWelcomeMessage(){
+        return "    Welcome to tic-tac-toe!";
+    }
 
+    public void printMainMenu(){
         System.out.println("+------------------------------+");
         System.out.println("|Please select an option below |");
         System.out.println("+------------------------------+");
@@ -30,13 +21,14 @@ public class Interface {
         System.out.println("|Q -- quit the game            |");
         System.out.println("+------------------------------+");
         System.out.print("Enter your choice: ");
-
-        String input = getUserInput();
-
-        return input;
-
     }
+    private String getPlayerName(){
+        Scanner reader = new Scanner(System.in);
+        String playerName = reader.nextLine();
+        reader.close();
 
+        return playerName;
+    }
     public int getPlayerChoice(){
         System.out.println("Please choose a number between 1 and 9:");
         Scanner reader = new Scanner(System.in);
@@ -54,7 +46,7 @@ public class Interface {
         }
     }
 
-    private static String getUserInput(){
+    private static String getMenuInput(){
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
         reader.close();
@@ -62,7 +54,18 @@ public class Interface {
         return input;
     }
 
-    public static String printWelcomeMessage(){
-        return "    Welcome to tic-tac-toe!"; //temp location for this print
+    public static void printWrongInput() {
+        System.out.println("Invalid input!");
+        System.out.println("Try again");
+    }
+
+    public String printContinuePlaying() {
+        System.out.println("Play again? (y/n)");
+        return getMenuInput();
+    }
+
+    public void printResults(String winner) {
+        System.out.println("GAME OVER");
+        System.out.println("Winner is " + winner + "!");
     }
 }

@@ -1,9 +1,9 @@
 package business.layer;
 
-import java.util.ArrayList;
+import ui.layer.Interface;
+
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import ui.layer.Interface;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
@@ -14,16 +14,14 @@ public class PlayService {
     }
 
     private Interface mainInterface;
-    private String[] board;
+    protected String[] board;
     private playerChar currentPlayer;
     private Player player1;
     private Player player2;
 
-    public PlayService(String playerOneName, boolean isPlayerOneHuman, String playerTwoName, boolean isPlayerTwoHuman) {
+    public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
-        player1 = new Player(playerOneName, 1, isPlayerOneHuman);
-        player2 = new Player(playerTwoName, 2, isPlayerTwoHuman);
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
@@ -49,9 +47,13 @@ public class PlayService {
         }while (results() == -1);
     }
 
-    public void TwoPlayerGame()
-    {
+    public void TwoPlayerGame(){
+        player1 = new Player("Name1 gotten from interface", 1, true);
+        player2 = new Player("Name2 gotten from interface", 2, true);
+        int results = -1;
+        do{
 
+        }while(results() == -1);
     }
 
     public void PlayTurnHuman (){
@@ -64,7 +66,13 @@ public class PlayService {
          */
         int res = results();
     }
+    private String getPlayerName(){
+        Scanner reader = new Scanner(System.in);
+        String playerName = reader.nextLine();
+        reader.close();
 
+        return playerName;
+    }
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
@@ -80,50 +88,49 @@ public class PlayService {
     // if current player wins, return 1
     // if game should go on, return -1
     // if game is a draw, return 0
-    private int results() {
+    protected int results() {
 
         int rowCount = 0;
 
-        /*for (int m = 0; m < board.length; m++){
-            if (board[m].equals(playerChar.O) || board[m].equals(playerChar.X)){
+        for (int m = 0; m < board.length; m++){
+            if (board[m].equals(playerChar.O.toString()) || board[m].equals(playerChar.X.toString())){
                 rowCount++;
             }
         }
         if (rowCount == 9){
             return 0;
         }
-        rowCount = 0;*/
+        rowCount = 0;
 
         for (int i = 0; i < board.length; i++){
-            if (rowCount % 3 == 0 && rowCount != 0) {
-                return 1;
-            }
-            if ((i % 3) == 0) {
-                rowCount = 0;
-            }
             if (board[i].equals(currentPlayer.toString())){
                 rowCount++;
             }
-        }
-        // needs further testing
-        /*for (int j = 0; j < board.length; j+= 3){
-            if (j >= 6 && j <= 8){
-                j -= 5;
+            if (rowCount % 3 == 0 && rowCount != 0) {
+                return 1;
             }
-            if (j % 3 == 0 ) {
+            if ((i % 3) == 0 && i != 0) {
                 rowCount = 0;
+            }
+        }
+        rowCount = 0;
+
+        for (int j = 0; j < board.length; j+= 3){
+            if (board[j].equals(currentPlayer.toString())){
+                rowCount++;
             }
             if (rowCount % 3 == 0 && rowCount != 0){
                 return 1;
             }
-            if (board[j].equals(currentPlayer)){
-                rowCount++;
+            if (j >= 6 && j <= 7){
+                j -= 8;
+                rowCount = 0;
             }
-        }*/
-        if (board[0].equals(currentPlayer) && board[4].equals(currentPlayer) && board[8].equals(currentPlayer)){
+        }
+        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[8].equals(currentPlayer.toString())){
             return 1;
         }
-        if (board[2].equals(currentPlayer) && board[4].equals(currentPlayer) && board[6].equals(currentPlayer)){
+        if (board[2].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[6].equals(currentPlayer.toString())){
             return 1;
         }
         return -1;
@@ -141,7 +148,7 @@ public class PlayService {
         }
     }
 
-    private void togglePlayer() {
+    protected void togglePlayer() {
 
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
