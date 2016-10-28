@@ -46,7 +46,7 @@ public class PlayServiceTest
         assertEquals(1, playServiceTest.PlayTurnHuman(3));
     }
 
-    /*@Test
+    @Test
     public void testPlay9TurnsDraw() throws Exception {
         playServiceTest.PlayTurnHuman(2);
         playServiceTest.PlayTurnHuman(1);
@@ -58,7 +58,7 @@ public class PlayServiceTest
         playServiceTest.PlayTurnHuman(8);
 
         assertEquals(0, playServiceTest.PlayTurnHuman(9));
-    }*/
+    }
 
     @Test
     public void testInvalidPlayerChoiceInput() throws Exception {

@@ -77,25 +77,25 @@ public class PlayService {
 
         int rowCount = 0;
 
-        /*for (int m = 0; m < board.length; m++){
-            if (board[m].equals(playerChar.O) || board[m].equals(playerChar.X)){
+        for (int m = 0; m < board.length; m++){
+            if (board[m].equals(playerChar.O.toString()) || board[m].equals(playerChar.X.toString())){
                 rowCount++;
             }
         }
         if (rowCount == 9){
             return 0;
         }
-        rowCount = 0;*/
+        rowCount = 0;
 
         for (int i = 0; i < board.length; i++){
+            if (board[i].equals(currentPlayer.toString())){
+                rowCount++;
+            }
             if (rowCount % 3 == 0 && rowCount != 0) {
                 return 1;
             }
             if ((i % 3) == 0) {
                 rowCount = 0;
-            }
-            if (board[i].equals(currentPlayer.toString())){
-                rowCount++;
             }
         }
         // needs further testing
@@ -113,10 +113,10 @@ public class PlayService {
                 rowCount++;
             }
         }*/
-        if (board[0].equals(currentPlayer) && board[4].equals(currentPlayer) && board[8].equals(currentPlayer)){
+        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer) && board[8].equals(currentPlayer.toString())){
             return 1;
         }
-        if (board[2].equals(currentPlayer) && board[4].equals(currentPlayer) && board[6].equals(currentPlayer)){
+        if (board[2].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[6].equals(currentPlayer.toString())){
             return 1;
         }
         return -1;
