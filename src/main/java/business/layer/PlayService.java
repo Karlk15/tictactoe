@@ -22,6 +22,7 @@ public class PlayService {
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
+        mainInterface = new Interface();
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
@@ -36,7 +37,26 @@ public class PlayService {
 
     public void playGame()
     {
-
+        mainInterface.printWelcomeMessage();
+        mainInterface.printMainMenu();
+        String getChoice;
+        boolean checkChoice = true;
+        do{
+            getChoice = mainInterface.getMenuInput();
+            if(getChoice == "1"){
+                OnePlayerGame();
+            }
+            else if(getChoice == "2"){
+                TwoPlayerGame();
+            }
+            else if(getChoice == "q"){
+                checkChoice = false;
+                //print thanks for playing!
+            }
+            else{
+                mainInterface.printWrongInput();
+            }
+        }while(checkChoice);
     }
 
     public void OnePlayerGame(){
@@ -94,6 +114,12 @@ public class PlayService {
         }
         int res = results();
     }
+
+    public static void main(String[] args){
+        PlayService ps = new PlayService();
+        ps.playGame();
+    }
+
     // if current player wins, return 1
     // if game should go on, return -1
     // if game is a draw, return 0
