@@ -42,8 +42,6 @@ public class PlayService {
     public void OnePlayerGame(){
         do
         {
-            int input = mainInterface.getPlayerChoice();
-            validatePlayerInput(input);
             PlayTurnComputer();
             PlayTurnHuman();
         }while (results() == -1);
@@ -80,7 +78,6 @@ public class PlayService {
         }while(!validatePlayerInput(input));
         makeMove(input);
         int res = results();
-
     }
 
     public void PlayTurnComputer(){
