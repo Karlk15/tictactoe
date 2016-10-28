@@ -24,35 +24,49 @@ public class PlayServiceTest
     }
 
     @Test
-    public void testResultsForPlayerOneWin(){
-        playServiceTest.board[0] = "X";
-        playServiceTest.board[8] = "O";
-        playServiceTest.board[1] = "X";
-        playServiceTest.board[6] = "O";
-        playServiceTest.board[2] = "X";
-        assertEquals(1, playServiceTest.results());
+    public void testResultsForPlayerOneWinHorizontal(){
+        PlayService playServiceTest1 = new PlayService();
+        playServiceTest1.board[0] = "X";
+        playServiceTest1.board[8] = "O";
+        playServiceTest1.board[1] = "X";
+        playServiceTest1.board[6] = "O";
+        playServiceTest1.board[2] = "X";
+        assertEquals(1, playServiceTest1.results());
     }
-    /*@Test
-    public void testPlay9TurnsDraw() throws Exception {
-        playServiceTest.PlayTurnHuman(2);
-        playServiceTest.PlayTurnHuman(1);
-        playServiceTest.PlayTurnHuman(5);
-        playServiceTest.PlayTurnHuman(3);
-        playServiceTest.PlayTurnHuman(6);
-        playServiceTest.PlayTurnHuman(4);
-        playServiceTest.PlayTurnHuman(7);
-        playServiceTest.PlayTurnHuman(8);
-
-        assertEquals(0, playServiceTest.PlayTurnHuman(9));
-    }
-
     @Test
-    public void testInvalidPlayerChoiceInput() throws Exception {
-        assertEquals(false, playServiceTest.validatePlayerInput(13));
+    public void testResults9TurnsDraw() {
+        PlayService playServiceTest2 = new PlayService();
+        playServiceTest2.board[1] = "X";
+        playServiceTest2.board[0] = "O";
+        playServiceTest2.board[4] = "X";
+        playServiceTest2.board[2] = "O";
+        playServiceTest2.board[5] = "X";
+        playServiceTest2.board[3] = "O";
+        playServiceTest2.board[6] = "X";
+        playServiceTest2.board[7] = "O";
+        playServiceTest2.board[8] = "X";
+        assertEquals(0, playServiceTest2.results());
     }
-
     @Test
-    public void testValidPlayerChoiceInput() throws Exception {
-        assertEquals(true, playServiceTest.validatePlayerInput(5));
-    }*/
+    public void testResultsForPlayerTwoWinCross(){
+        PlayService playServiceTest4 = new PlayService();
+        playServiceTest4.board[1] = "X";
+        playServiceTest4.board[0] = "O";
+        playServiceTest4.board[2] = "X";
+        playServiceTest4.board[4] = "O";
+        playServiceTest4.board[5] = "X";
+        playServiceTest4.board[8] = "O";
+        playServiceTest4.togglePlayer();
+        assertEquals(1, playServiceTest4.results());
+    }
+    @Test
+    public void testResultsForPlayerOneWinVertical(){
+        PlayService playServiceTest3 = new PlayService();
+        playServiceTest3.board[1] = "X";
+        playServiceTest3.board[0] = "O";
+        playServiceTest3.board[4] = "X";
+        playServiceTest3.board[3] = "O";
+        playServiceTest3.board[7] = "X";
+        assertEquals(1, playServiceTest3.results());
+    }
 }

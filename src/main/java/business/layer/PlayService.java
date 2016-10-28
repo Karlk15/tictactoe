@@ -115,22 +115,21 @@ public class PlayService {
                 rowCount = 0;
             }
         }
-        // needs further testing
-        /*for (int j = 0; j < board.length; j+= 3){
-            if (j >= 6 && j <= 8){
-                j -= 5;
-            }
-            if (j % 3 == 0 ) {
-                rowCount = 0;
+        rowCount = 0;
+
+        for (int j = 0; j < board.length; j+= 3){
+            if (board[j].equals(currentPlayer.toString())){
+                rowCount++;
             }
             if (rowCount % 3 == 0 && rowCount != 0){
                 return 1;
             }
-            if (board[j].equals(currentPlayer)){
-                rowCount++;
+            if (j >= 6 && j <= 7){
+                j -= 8;
+                rowCount = 0;
             }
-        }*/
-        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer) && board[8].equals(currentPlayer.toString())){
+        }
+        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[8].equals(currentPlayer.toString())){
             return 1;
         }
         if (board[2].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[6].equals(currentPlayer.toString())){
@@ -151,7 +150,7 @@ public class PlayService {
         }
     }
 
-    private void togglePlayer() {
+    protected void togglePlayer() {
 
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
