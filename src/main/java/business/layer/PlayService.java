@@ -124,7 +124,7 @@ public class PlayService {
                 rowCount++;
             }
         }*/
-        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer) && board[8].equals(currentPlayer.toString())){
+        if (board[0].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[8].equals(currentPlayer.toString())){
             return 1;
         }
         if (board[2].equals(currentPlayer.toString()) && board[4].equals(currentPlayer.toString()) && board[6].equals(currentPlayer.toString())){
@@ -145,7 +145,7 @@ public class PlayService {
         }
     }
 
-    private void togglePlayer() {
+    protected void togglePlayer() {
 
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;

@@ -24,7 +24,7 @@ public class PlayServiceTest
     }
 
     @Test
-    public void testResultsForPlayerOneWin(){
+    public void testResultsForPlayerOneWinHorizontal(){
         playServiceTest.board[0] = "X";
         playServiceTest.board[8] = "O";
         playServiceTest.board[1] = "X";
@@ -32,20 +32,41 @@ public class PlayServiceTest
         playServiceTest.board[2] = "X";
         assertEquals(1, playServiceTest.results());
     }
-    /*@Test
-    public void testPlay9TurnsDraw() throws Exception {
-        playServiceTest.PlayTurnHuman(2);
-        playServiceTest.PlayTurnHuman(1);
-        playServiceTest.PlayTurnHuman(5);
-        playServiceTest.PlayTurnHuman(3);
-        playServiceTest.PlayTurnHuman(6);
-        playServiceTest.PlayTurnHuman(4);
-        playServiceTest.PlayTurnHuman(7);
-        playServiceTest.PlayTurnHuman(8);
-
-        assertEquals(0, playServiceTest.PlayTurnHuman(9));
+    @Test
+    public void testResults9TurnsDraw() {
+        playServiceTest.board[1] = "X";
+        playServiceTest.board[0] = "O";
+        playServiceTest.board[4] = "X";
+        playServiceTest.board[2] = "O";
+        playServiceTest.board[5] = "X";
+        playServiceTest.board[3] = "O";
+        playServiceTest.board[6] = "X";
+        playServiceTest.board[7] = "O";
+        playServiceTest.board[8] = "X";
+        assertEquals(0, playServiceTest.results());
     }
+    @Test
+    public void testResultsForPlayerTwoWinCross(){
+        playServiceTest.board[1] = "X";
+        playServiceTest.board[0] = "O";
+        playServiceTest.board[2] = "X";
+        playServiceTest.board[4] = "O";
+        playServiceTest.board[5] = "X";
+        playServiceTest.board[8] = "O";
+        playServiceTest.togglePlayer();
+        assertEquals(1, playServiceTest.results());
+    }
+    /*@Test
 
+    public void testResultsForPlayerOneWinVertical(){
+        playServiceTest.board[1] = "X";
+        playServiceTest.board[0] = "O";
+        playServiceTest.board[4] = "X";
+        playServiceTest.board[3] = "O";
+        playServiceTest.board[7] = "X";
+        assertEquals(1, playServiceTest.results());
+    }*/
+    /*
     @Test
     public void testInvalidPlayerChoiceInput() throws Exception {
         assertEquals(false, playServiceTest.validatePlayerInput(13));
