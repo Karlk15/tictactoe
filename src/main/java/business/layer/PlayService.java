@@ -54,7 +54,7 @@ public class PlayService {
     public void OnePlayerGame(){
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
-        player1 = new Player("PC Principal", 2, false);
+        player2 = new Player("PC Principal", 2, false);
         int results = -1;
         mainInterface.displayBoard(board);
         do {
@@ -68,7 +68,7 @@ public class PlayService {
             togglePlayer();
             PlayTurnComputer();
             results = results();
-            checkResults(results, player1);
+            checkResults(results, player2);
             mainInterface.printComputerTurnFinished();
             mainInterface.displayBoard(board);
             togglePlayer();
@@ -105,19 +105,17 @@ public class PlayService {
             }
         }while(!validatePlayerInput(input));
         makeMove(input);
-        int res = results();
     }
 
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
             int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-            if (!board[i].equals(playerChar.O) || !board[i].equals(playerChar.X)){
+            if (!board[i].equals(playerChar.O.toString()) || !board[i].equals(playerChar.X.toString())){
                 board[i] = currentPlayer.toString();
                 cont = true;
             }
         }
-        int res = results();
     }
 
     public static void main(String[] args){
@@ -149,7 +147,7 @@ public class PlayService {
             if (rowCount % 3 == 0 && rowCount != 0) {
                 return 1;
             }
-            if ((i % 3) == 0 && i != 0) {
+            if (((i + 1) % 3) == 0 && i != 0) {
                 rowCount = 0;
             }
         }
