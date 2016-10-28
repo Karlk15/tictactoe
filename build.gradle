@@ -20,3 +20,7 @@ jar{
     	attributes("Main-Class": "ui.layer.Interface")
     }
 }
+
+run{
+    standardInput = System.in
+}

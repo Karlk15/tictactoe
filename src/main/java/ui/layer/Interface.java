@@ -2,6 +2,9 @@ package ui.layer;
 
 import business.layer.PlayService;
 
+import java.util.Scanner;
+import java.util.concurrent.SynchronousQueue;
+
 /**
  * Created by Hrafnkell on 26/10/2016.
  */
@@ -14,25 +17,29 @@ public class Interface {
         menu();
     }
 
-    public static void menu() {
+    public static void menu(){
         boolean cont = true;
-        System.out.println("Welcome to tic-tac-toe!");
+        System.out.println("    Welcome to tic-tac-toe!");
 
         while (cont) {
-            System.out.println("Enter '1P' to play against the computer, and '2P' to play against an opponent.");
-            System.out.println("To quit, press Q.");
+            System.out.println("+------------------------------+");
+            System.out.println("|Please select an option below |");
+            System.out.println("+------------------------------+");
+            System.out.println("|1 -- play against the computer|");
+            System.out.println("|2 -- play against an opponent |");
+            System.out.println("|Q -- quit the game            |");
+            System.out.println("+------------------------------+");
+            System.out.print("Enter your choice: ");
+            String input = getUserInput();
 
-            String input = System.in.toString();
-
-
-            if (input == "1P" || input == "1p") {
+            if (input.equals("1")){
                 displayBoard();
             }
-            else if (input == "2P" || input == "2p") {
+            else if (input.equals("2")){
                 displayBoard();
             }
-            else if (input == "Q" || input == "q") {
-                cont = false;
+            else if(input.equals("q") || input.equals("Q")){
+                displayBoard();
             }
             else {
                 System.out.println("Enter a valid input, please.");
@@ -40,7 +47,7 @@ public class Interface {
 
             System.out.println("Do you want to play another game? (y/n)");
             String in = System.in.toString();
-            if (in == "N" || in =="n") {
+            if (!(in.equals("y|Y"))){
                 cont = false;
             }
         }
@@ -56,5 +63,13 @@ public class Interface {
                 System.out.print("\n");
             }
         }
+    }
+
+    private static String getUserInput(){
+        Scanner reader = new Scanner(System.in);
+        String input = reader.nextLine();
+        reader.close();
+
+        return input;
     }
 }
