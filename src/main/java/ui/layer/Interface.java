@@ -2,8 +2,6 @@ package ui.layer;
 
 import business.layer.PlayService;
 
-import java.io.IOException;
-
 /**
  * Created by Hrafnkell on 26/10/2016.
  */
@@ -16,28 +14,33 @@ public class Interface {
         menu();
     }
 
-    public static void menu(){
+    public static void menu() {
         boolean cont = true;
         System.out.println("Welcome to tic-tac-toe!");
 
-        while (cont == true) {
-            System.out.println("Enter '1P' to play against the computer, and '2P' to play against an opponent");
+        while (cont) {
+            System.out.println("Enter '1P' to play against the computer, and '2P' to play against an opponent.");
+            System.out.println("To quit, press Q.");
 
             String input = System.in.toString();
             displayBoard();
 
-            if (input == "1P"){
-
+            if (input == "1P" || input == "1p") {
+                return 0;
             }
-            else if (input == "2P"){
-
+            else if (input == "2P" || input == "2p") {
+                return 0;
             }
-            else{
+            else if (input == "Q" || input == "q") {
+                cont = false;
+            }
+            else {
                 System.out.println("Enter a valid input, please.");
             }
+
             System.out.println("Do you want to play another game? (y/n)");
             String in = System.in.toString();
-            if (in != "y|Y"){
+            if (in == "N" || in =="n") {
                 cont = false;
             }
         }
