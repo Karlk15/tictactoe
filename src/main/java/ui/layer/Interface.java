@@ -10,17 +10,11 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class Interface {
 
-    /**
-     * Need to figure out where what class the main function should be.
-     */
-    /*public static void main(String args[]){
-        playService = new PlayService();
-        System.out.println("    Welcome to tic-tac-toe!"); //temp location for this print
-        mainMenu();
-    }*/
+    public String printWelcomeMessage(){
+        return "    Welcome to tic-tac-toe!";
+    }
 
-    public static String mainMenu(){
-
+    public String mainMenu(){
         System.out.println("+------------------------------+");
         System.out.println("|Please select an option below |");
         System.out.println("+------------------------------+");
@@ -54,7 +48,18 @@ public class Interface {
         return input;
     }
 
-    public static String printWelcomeMessage(){
-        return "    Welcome to tic-tac-toe!"; //temp location for this print
+    public static void printWrongInput() {
+        System.out.println("Invalid input!");
+        System.out.println("Try again");
+    }
+
+    public String printContinuePlaying() {
+        System.out.println("Play again? (y/n)");
+        return getUserInput();
+    }
+
+    public void printResults(String winner) {
+        System.out.println("GAME OVER");
+        System.out.println("Winner is " + winner + "!");
     }
 }
