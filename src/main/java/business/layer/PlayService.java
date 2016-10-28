@@ -67,7 +67,15 @@ public class PlayService {
         do {
             PlayTurnHuman();
             results = results();
+            if (results == 1 || results == 0){
+                checkResults(results, player1);
+                break;
+            }
+            togglePlayer();
             PlayTurnComputer();
+            results = results();
+            checkResults(results, player1);
+            togglePlayer();
         }while (results() == -1);
     }
 
