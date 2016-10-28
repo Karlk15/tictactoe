@@ -1,9 +1,9 @@
 package business.layer;
 
-import java.util.ArrayList;
+import ui.layer.Interface;
+
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import ui.layer.Interface;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
@@ -68,7 +68,13 @@ public class PlayService {
          */
         int res = results();
     }
+    private String getPlayerName(){
+        Scanner reader = new Scanner(System.in);
+        String playerName = reader.nextLine();
+        reader.close();
 
+        return playerName;
+    }
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {

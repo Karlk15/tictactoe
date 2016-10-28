@@ -1,10 +1,6 @@
 package ui.layer;
 
-import business.layer.PlayService;
-
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.concurrent.SynchronousQueue;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
@@ -26,7 +22,13 @@ public class Interface {
         System.out.println("+------------------------------+");
         System.out.print("Enter your choice: ");
     }
+    private String getPlayerName(){
+        Scanner reader = new Scanner(System.in);
+        String playerName = reader.nextLine();
+        reader.close();
 
+        return playerName;
+    }
     public int getPlayerChoice(){
         System.out.println("Please choose a number between 1 and 9:");
         Scanner reader = new Scanner(System.in);
