@@ -22,31 +22,7 @@ public class PlayServiceTest
         assertEquals("1", playServiceTest.getNext(0));
         assertEquals("5", playServiceTest.getNext(4));
     }
-
-    @Test
-    public void testPlayTurnHuman() throws Exception {
-        assertEquals(-1, playServiceTest.PlayTurnHuman(4));
-    }
-
-    @Test
-    public void testPlay4TurnsHuman() throws Exception {
-        playServiceTest.PlayTurnHuman(1);
-        playServiceTest.PlayTurnHuman(2);
-        playServiceTest.PlayTurnHuman(4);
-        assertEquals(-1, playServiceTest.PlayTurnHuman(9));
-
-    }
-
-    @Test
-    public void testPlay5TurnsPlayer1Win() throws Exception {
-        playServiceTest.PlayTurnHuman(1);
-        playServiceTest.PlayTurnHuman(4);
-        playServiceTest.PlayTurnHuman(2);
-        playServiceTest.PlayTurnHuman(6);
-        assertEquals(1, playServiceTest.PlayTurnHuman(3));
-    }
-
-    @Test
+    /*@Test
     public void testPlay9TurnsDraw() throws Exception {
         playServiceTest.PlayTurnHuman(2);
         playServiceTest.PlayTurnHuman(1);
@@ -68,5 +44,5 @@ public class PlayServiceTest
     @Test
     public void testValidPlayerChoiceInput() throws Exception {
         assertEquals(true, playServiceTest.validatePlayerInput(5));
-    }
+    }*/
 }

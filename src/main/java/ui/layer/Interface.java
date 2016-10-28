@@ -2,6 +2,7 @@ package ui.layer;
 
 import business.layer.PlayService;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.SynchronousQueue;
 
@@ -34,6 +35,13 @@ public class Interface {
 
         return input;
 
+    }
+
+    public int getPlayerChoice(){
+        System.out.println("Please choose a number between 1 and 9:");
+        Scanner reader = new Scanner(System.in);
+        int input = reader.nextInt();
+        return input;
     }
 
     public static void displayBoard(String[] board){

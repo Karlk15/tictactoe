@@ -3,6 +3,7 @@ package business.layer;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import ui.layer.Interface;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
@@ -12,6 +13,7 @@ public class PlayService {
         X, O
     }
 
+    private Interface mainInterface;
     private String[] board;
     private playerChar currentPlayer;
     private Player player1;
@@ -34,30 +36,37 @@ public class PlayService {
         return board[next];
     }
 
-    public void OnePlayerGame(){
+    public void playGame()
+    {
 
+    }
+
+    public void OnePlayerGame(){
+        do
+        {
+            int input = mainInterface.getPlayerChoice();
+            validatePlayerInput(input);
+            PlayTurnComputer();
+            PlayTurnHuman();
+        }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
 
     }
 
-    public int PlayTurnHuman(int input) throws Exception {
-        input -= 1;
-        if (input < 0 || input > 8){
-            throw new Exception("Wrong input!");
-        }
-        else if (board[input].equals(playerChar.O) || board[input].equals(playerChar.X)){
-            throw new Exception("Square taken!");
-        }
-        else{
-            board[input] = currentPlayer.toString();
-        }
+    public void PlayTurnHuman (){
+        int input;
+        do{
+            input = mainInterface.getPlayerChoice();
+        }while(!validatePlayerInput(input));
+        /*
+        To do rest of turn
+         */
         int res = results();
-        return res;
     }
 
-    public int PlayTurnComputer(){
+    public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
             int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
@@ -68,7 +77,6 @@ public class PlayService {
             }
         }
         int res = results();
-        return res;
     }
     // if current player wins, return 1
     // if game should go on, return -1
