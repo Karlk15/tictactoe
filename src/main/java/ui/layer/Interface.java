@@ -48,10 +48,6 @@ public class Interface {
 
     }
 
-    public static void twoPlayer(){
-
-    }
-
     public static void displayBoard(){
 
         for (int i = 0; i < playService.getSize(); i++){
