@@ -35,13 +35,13 @@ public class PlayService {
         boolean checkChoice = true;
         do{
             getChoice = mainInterface.getMenuInput();
-            if(getChoice == "1"){
+            if(getChoice.equals("1")){
                 OnePlayerGame();
             }
-            else if(getChoice == "2"){
+            else if(getChoice.equals("2")){
                 TwoPlayerGame();
             }
-            else if(getChoice == "q"){
+            else if(getChoice.equals("q")){
                 checkChoice = false;
                 //print thanks for playing!
             }
@@ -52,24 +52,38 @@ public class PlayService {
     }
 
     public void OnePlayerGame(){
-        do
-        {
-            PlayTurnComputer();
+        mainInterface.printInsertName("1");
+        player1 = new Player(mainInterface.getPlayerName(), 1, true);
+        player2 = new Player("PC Principal", 2, false);
+        int results = -1;
+        mainInterface.displayBoard(board);
+        do {
             PlayTurnHuman();
+            results = results();
+            if (results == 1 || results == 0){
+                checkResults(results, player1);
+                break;
+            }
+            mainInterface.displayBoard(board);
+            togglePlayer();
+            PlayTurnComputer();
+            results = results();
+            checkResults(results, player2);
+            mainInterface.printComputerTurnFinished();
+            mainInterface.displayBoard(board);
+            togglePlayer();
         }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
-        for(int i = 0; i < 2; i++){
-            //gets the name for both players
-            //need to implement a function in interface to print "Enter name for player i"
-        }
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
         mainInterface.printInsertName("2");
         player2 = new Player(mainInterface.getPlayerName(), 2, true);
         int results = -1;
+        mainInterface.displayBoard(board);
         do{
+            mainInterface.displayBoard(board);
             PlayTurnHuman();
             results = results();
             if(currentPlayer == currentPlayer.X){
@@ -91,20 +105,17 @@ public class PlayService {
             }
         }while(!validatePlayerInput(input));
         makeMove(input);
-        int res = results();
     }
 
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
             int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-            if (!board[i].equals(playerChar.O) || !board[i].equals(playerChar.X)){
+            if (!board[i].equals(playerChar.O.toString()) && !board[i].equals(playerChar.X.toString())){
                 board[i] = currentPlayer.toString();
                 cont = true;
-                togglePlayer();
             }
         }
-        int res = results();
     }
 
     public static void main(String[] args){
@@ -136,7 +147,7 @@ public class PlayService {
             if (rowCount % 3 == 0 && rowCount != 0) {
                 return 1;
             }
-            if ((i % 3) == 0 && i != 0) {
+            if (((i + 1) % 3) == 0 && i != 0) {
                 rowCount = 0;
             }
         }
@@ -180,10 +191,13 @@ public class PlayService {
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
         }
+        else{
+            currentPlayer = playerChar.X;
+        }
     }
 
     protected void makeMove(int place){
-        board[place] = currentPlayer.toString();
+        board[place - 1] = currentPlayer.toString();
     }
 
     protected void checkResults(int res, Player currentPlayer){
