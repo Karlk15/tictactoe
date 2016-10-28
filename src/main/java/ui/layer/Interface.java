@@ -23,13 +23,13 @@ public class Interface {
             System.out.println("To quit, press Q.");
 
             String input = System.in.toString();
-            displayBoard();
+
 
             if (input == "1P" || input == "1p") {
-                return 0;
+                displayBoard();
             }
             else if (input == "2P" || input == "2p") {
-                return 0;
+                displayBoard();
             }
             else if (input == "Q" || input == "q") {
                 cont = false;
