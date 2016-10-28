@@ -32,5 +32,15 @@ public class PlayService
         return 0;
     }
 
+    private void results(){
+
+        
+    }
+
+    private void togglePlayer(){
+
+
+    }
+
 
 }
