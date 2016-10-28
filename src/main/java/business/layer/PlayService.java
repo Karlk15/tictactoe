@@ -34,8 +34,19 @@ public class PlayService {
         return board[next];
     }
 
-    public void OnePlayerGame(){
+    public void playGame()
+    {
 
+    }
+
+    public void OnePlayerGame(){
+        do
+        {
+            int input = mainInterface.getPlayerChoice();
+            validatePlayerInput(input);
+            PlayTurnComputer();
+            PlayTurnHuman();
+        }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
@@ -47,7 +58,7 @@ public class PlayService {
         }while(results() == -1);
     }
 
-    public void PlayTurnHuman () throws Exception {
+    public void PlayTurnHuman (){
         int input;
         do{
             input = mainInterface.getPlayerChoice();
