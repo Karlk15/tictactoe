@@ -18,8 +18,7 @@ public class PlayServiceTest
     }
 
     @Test
-    public void testNextInput()
-    {
+    public void testNextInput() {
         assertEquals("1", playServiceTest.getNext(0));
         assertEquals("5", playServiceTest.getNext(4));
     }
