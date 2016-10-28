@@ -10,55 +10,36 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class Interface {
 
-    private static PlayService playService;
-
-    public static void main(String args[]){
+    /**
+     * Need to figure out where what class the main function should be.
+     */
+    /*public static void main(String args[]){
         playService = new PlayService();
-        menu();
-    }
+        System.out.println("    Welcome to tic-tac-toe!"); //temp location for this print
+        mainMenu();
+    }*/
 
-    public static void menu(){
-        boolean cont = true;
-        System.out.println("    Welcome to tic-tac-toe!");
+    public static String mainMenu(){
 
-        while (cont) {
-            System.out.println("+------------------------------+");
-            System.out.println("|Please select an option below |");
-            System.out.println("+------------------------------+");
-            System.out.println("|1 -- play against the computer|");
-            System.out.println("|2 -- play against an opponent |");
-            System.out.println("|Q -- quit the game            |");
-            System.out.println("+------------------------------+");
-            System.out.print("Enter your choice: ");
-            String input = getUserInput();
+        System.out.println("+------------------------------+");
+        System.out.println("|Please select an option below |");
+        System.out.println("+------------------------------+");
+        System.out.println("|1 -- play against the computer|");
+        System.out.println("|2 -- play against an opponent |");
+        System.out.println("|Q -- quit the game            |");
+        System.out.println("+------------------------------+");
+        System.out.print("Enter your choice: ");
 
-            if (input.equals("1")){
-                displayBoard();
-            }
-            else if (input.equals("2")){
-                displayBoard();
-            }
-            else if(input.equals("q") || input.equals("Q")){
-                displayBoard();
-            }
-            else {
-                System.out.println("Enter a valid input, please.");
-            }
+        String input = getUserInput();
 
-            System.out.println("Do you want to play another game? (y/n)");
-            String in = System.in.toString();
-            if (!(in.equals("y|Y"))){
-                cont = false;
-            }
-        }
-
+        return input;
 
     }
 
-    public static void displayBoard(){
+    public static void displayBoard(String[] board){
 
-        for (int i = 0; i < playService.getSize(); i++){
-            System.out.print(playService.getNext(i) + " ");
+        for (int i = 0; i < board.length; i++){
+            System.out.print(board[i] + " ");
             if ((i + 1) % 3 == 0){
                 System.out.print("\n");
             }
@@ -71,5 +52,9 @@ public class Interface {
         reader.close();
 
         return input;
+    }
+
+    public static String printWelcomeMessage(){
+        return "    Welcome to tic-tac-toe!"; //temp location for this print
     }
 }
