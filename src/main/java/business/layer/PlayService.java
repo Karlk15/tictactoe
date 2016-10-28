@@ -19,11 +19,9 @@ public class PlayService {
     private Player player1;
     private Player player2;
 
-    public PlayService(String playerOneName, boolean isPlayerOneHuman, String playerTwoName, boolean isPlayerTwoHuman) {
+    public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
-        player1 = new Player(playerOneName, 1, isPlayerOneHuman);
-        player2 = new Player(playerTwoName, 2, isPlayerTwoHuman);
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
@@ -41,7 +39,12 @@ public class PlayService {
     }
 
     public void TwoPlayerGame(){
+        player1 = new Player("Name1 gotten from interface", 1, true);
+        player2 = new Player("Name2 gotten from interface", 2, true);
+        int results = -1
+        do{
 
+        }while(results() == -1);
     }
 
     public void PlayTurnHuman () throws Exception {
