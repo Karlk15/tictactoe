@@ -46,7 +46,7 @@ public class Interface {
         }
     }
 
-    private static String getMenuInput(){
+    public static String getMenuInput(){
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
         reader.close();
@@ -67,5 +67,9 @@ public class Interface {
     public void printResults(String winner) {
         System.out.println("GAME OVER");
         System.out.println("Winner is " + winner + "!");
+    }
+
+    public void printDraw(){
+        System.out.println("Sorry it's a draw!");
     }
 }

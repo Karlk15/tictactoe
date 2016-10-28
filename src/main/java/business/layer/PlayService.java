@@ -50,31 +50,39 @@ public class PlayService {
     }
 
     public void TwoPlayerGame(){
+        for(int i = 0; i < 2; i++){
+            //gets the name for both players
+            //need to implement a function in interface to print "Enter name for player i"
+        }
         player1 = new Player("Name1 gotten from interface", 1, true);
         player2 = new Player("Name2 gotten from interface", 2, true);
         int results = -1;
         do{
-
-        }while(results() == -1);
+            PlayTurnHuman();
+            results = results();
+            if(currentPlayer == currentPlayer.X){
+                checkResults(results, player1);
+            }
+            else{
+                checkResults(results, player2);
+            }
+            togglePlayer();
+        }while(results == -1);
     }
 
     public void PlayTurnHuman (){
         int input;
         do{
             input = mainInterface.getPlayerChoice();
+            if(!validatePlayerInput(input)){
+                mainInterface.printWrongInput();
+            }
         }while(!validatePlayerInput(input));
-        /*
-        To do rest of turn
-         */
+        makeMove(input);
         int res = results();
-    }
-    private String getPlayerName(){
-        Scanner reader = new Scanner(System.in);
-        String playerName = reader.nextLine();
-        reader.close();
 
-        return playerName;
     }
+
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
@@ -154,6 +162,37 @@ public class PlayService {
 
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
+        }
+    }
+
+    protected void makeMove(int place){
+        board[place] = currentPlayer.toString();
+    }
+
+    protected void checkResults(int res, Player currentPlayer){
+        if(res == -1){
+
+        }
+        else if(res == 1){
+            mainInterface.printResults(currentPlayer.getPlayerName());
+            String input = mainInterface.printContinuePlaying();
+            if(input == "y"){
+                playGame();
+            }
+        }
+        else if(res == 0){
+            mainInterface.printDraw();
+            String input = mainInterface.printContinuePlaying();;
+            while(input != "n"){
+                input = mainInterface.getMenuInput();
+                if(input == "y"){
+                    playGame();
+                    break;
+                }
+                else{
+                    mainInterface.printWrongInput();
+                }
+            }
         }
     }
 }
