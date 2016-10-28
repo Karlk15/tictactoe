@@ -34,6 +34,14 @@ public class PlayService {
         return board[next];
     }
 
+    public void OnePlayerGame(){
+
+    }
+
+    public void TwoPlayerGame(){
+
+    }
+
     public int PlayTurnHuman(int input) throws Exception {
         input -= 1;
         if (input < 0 || input > 8){
@@ -112,6 +120,18 @@ public class PlayService {
             return 1;
         }
         return -1;
+    }
+
+    protected boolean validatePlayerInput(int char_input){
+        if(char_input < 1 || char_input > 9){
+            return false;
+        }
+        else if(!board[char_input-1].equals(Integer.toString(char_input))){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     private void togglePlayer() {

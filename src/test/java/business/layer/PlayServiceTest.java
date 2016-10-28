@@ -56,7 +56,17 @@ public class PlayServiceTest
         playServiceTest.PlayTurnHuman(4);
         playServiceTest.PlayTurnHuman(7);
         playServiceTest.PlayTurnHuman(8);
+
         assertEquals(0, playServiceTest.PlayTurnHuman(9));
     }*/
 
+    @Test
+    public void testInvalidPlayerChoiceInput() throws Exception {
+        assertEquals(false, playServiceTest.validatePlayerInput(13));
+    }
+
+    @Test
+    public void testValidPlayerChoiceInput() throws Exception {
+        assertEquals(true, playServiceTest.validatePlayerInput(5));
+    }
 }
