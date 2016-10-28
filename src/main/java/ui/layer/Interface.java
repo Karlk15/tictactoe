@@ -13,13 +13,13 @@ public class Interface {
     }
 
     public void printMainMenu(){
-        System.out.println("+------------------------------+");
-        System.out.println("|Please select an option below |");
-        System.out.println("+------------------------------+");
-        System.out.println("|1 -- play against the computer|");
-        System.out.println("|2 -- play against an opponent |");
-        System.out.println("|Q -- quit the game            |");
-        System.out.println("+------------------------------+");
+        System.out.println("╔═══════════════════════════════╗");
+        System.out.println("║ Please select an option below ║");
+        System.out.println("╠════╦══════════════════════════╣");
+        System.out.println("║ 1  ║ play against the computer║");
+        System.out.println("║ 2  ║ play against an opponent ║");
+        System.out.println("║ Q  ║ quit the game            ║");
+        System.out.println("╚════╩══════════════════════════╝");
         System.out.print("Enter your choice: ");
     }
     public String getPlayerName(){
