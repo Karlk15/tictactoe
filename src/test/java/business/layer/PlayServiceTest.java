@@ -22,6 +22,16 @@ public class PlayServiceTest
         assertEquals("1", playServiceTest.getNext(0));
         assertEquals("5", playServiceTest.getNext(4));
     }
+
+    @Test
+    public void testResultsForPlayerOneWin(){
+        playServiceTest.board[0] = "X";
+        playServiceTest.board[8] = "O";
+        playServiceTest.board[1] = "X";
+        playServiceTest.board[6] = "O";
+        playServiceTest.board[2] = "X";
+        assertEquals(1, playServiceTest.results());
+    }
     /*@Test
     public void testPlay9TurnsDraw() throws Exception {
         playServiceTest.PlayTurnHuman(2);

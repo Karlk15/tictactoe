@@ -14,7 +14,7 @@ public class PlayService {
     }
 
     private Interface mainInterface;
-    private String[] board;
+    protected String[] board;
     private playerChar currentPlayer;
     private Player player1;
     private Player player2;
@@ -84,7 +84,7 @@ public class PlayService {
     // if current player wins, return 1
     // if game should go on, return -1
     // if game is a draw, return 0
-    private int results() {
+    protected int results() {
 
         int rowCount = 0;
 
@@ -105,7 +105,7 @@ public class PlayService {
             if (rowCount % 3 == 0 && rowCount != 0) {
                 return 1;
             }
-            if ((i % 3) == 0) {
+            if ((i % 3) == 0 && i != 0) {
                 rowCount = 0;
             }
         }
