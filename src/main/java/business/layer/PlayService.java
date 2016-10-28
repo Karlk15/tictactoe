@@ -52,7 +52,7 @@ public class PlayService {
     public void TwoPlayerGame(){
         player1 = new Player("Name1 gotten from interface", 1, true);
         player2 = new Player("Name2 gotten from interface", 2, true);
-        int results = -1
+        int results = -1;
         do{
 
         }while(results() == -1);

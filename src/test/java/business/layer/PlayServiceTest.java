@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class PlayServiceTest
 {
-    PlayService playServiceTest = new PlayService("Bob Barker", true, "Billy Bitter", true);
+    PlayService playServiceTest = new PlayService();
 
     @Test
     public void testArraySize()
