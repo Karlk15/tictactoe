@@ -3,6 +3,7 @@ package business.layer;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import ui.layer.Interface;
 
 /**
  * Created by Hrafnkell on 26/10/2016.
@@ -12,16 +13,15 @@ public class PlayService {
         X, O
     }
 
+    private Interface mainInterface;
     private String[] board;
     private playerChar currentPlayer;
     private Player player1;
     private Player player2;
 
-    public PlayService(String playerOneName, boolean isPlayerOneHuman, String playerTwoName, boolean isPlayerTwoHuman) {
+    public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
-        player1 = new Player(playerOneName, 1, isPlayerOneHuman);
-        player2 = new Player(playerTwoName, 2, isPlayerTwoHuman);
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
@@ -34,30 +34,42 @@ public class PlayService {
         return board[next];
     }
 
-    public void OnePlayerGame(){
+    public void playGame()
+    {
 
+    }
+
+    public void OnePlayerGame(){
+        do
+        {
+            int input = mainInterface.getPlayerChoice();
+            validatePlayerInput(input);
+            PlayTurnComputer();
+            PlayTurnHuman();
+        }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
+        player1 = new Player("Name1 gotten from interface", 1, true);
+        player2 = new Player("Name2 gotten from interface", 2, true);
+        int results = -1
+        do{
 
+        }while(results() == -1);
     }
 
-    public int PlayTurnHuman(int input) throws Exception {
-        input -= 1;
-        if (input < 0 || input > 8){
-            throw new Exception("Wrong input!");
-        }
-        else if (board[input].equals(playerChar.O) || board[input].equals(playerChar.X)){
-            throw new Exception("Square taken!");
-        }
-        else{
-            board[input] = currentPlayer.toString();
-        }
+    public void PlayTurnHuman (){
+        int input;
+        do{
+            input = mainInterface.getPlayerChoice();
+        }while(!validatePlayerInput(input));
+        /*
+        To do rest of turn
+         */
         int res = results();
-        return res;
     }
 
-    public int PlayTurnComputer(){
+    public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
             int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
@@ -68,7 +80,6 @@ public class PlayService {
             }
         }
         int res = results();
-        return res;
     }
     // if current player wins, return 1
     // if game should go on, return -1
