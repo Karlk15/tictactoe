@@ -40,18 +40,18 @@ public class PlayService {
     }
 
     public void OnePlayerGame(){
-        do
-        {
-            PlayTurnComputer();
+        mainInterface.printInsertName("1");
+        player1 = new Player(mainInterface.getPlayerName(), 1, true);
+        player1 = new Player("PC Principal", 2, false);
+        int results = -1;
+        do {
             PlayTurnHuman();
+            results = results();
+            PlayTurnComputer();
         }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
-        for(int i = 0; i < 2; i++){
-            //gets the name for both players
-            //need to implement a function in interface to print "Enter name for player i"
-        }
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
         mainInterface.printInsertName("2");
