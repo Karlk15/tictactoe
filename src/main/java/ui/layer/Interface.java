@@ -11,8 +11,12 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class Interface {
 
-    public void mainMenu(){
 
+    public String printWelcomeMessage(){
+        return "    Welcome to tic-tac-toe!";
+    }
+
+    public void printMainMenu(){
         System.out.println("+------------------------------+");
         System.out.println("|Please select an option below |");
         System.out.println("+------------------------------+");
@@ -48,7 +52,18 @@ public class Interface {
         return input;
     }
 
-    public static String printWelcomeMessage(){
-        return "    Welcome to tic-tac-toe!";
+    public static void printWrongInput() {
+        System.out.println("Invalid input!");
+        System.out.println("Try again");
+    }
+
+    public String printContinuePlaying() {
+        System.out.println("Play again? (y/n)");
+        return getMenuInput();
+    }
+
+    public void printResults(String winner) {
+        System.out.println("GAME OVER");
+        System.out.println("Winner is " + winner + "!");
     }
 }

@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class PlayServiceTest
 {
-    PlayService playServiceTest = new PlayService("Bob Barker", true, "Billy Bitter", true);
+    PlayService playServiceTest = new PlayService();
 
     @Test
     public void testArraySize()
@@ -22,7 +22,6 @@ public class PlayServiceTest
         assertEquals("1", playServiceTest.getNext(0));
         assertEquals("5", playServiceTest.getNext(4));
     }
-
     /*@Test
     public void testPlay9TurnsDraw() throws Exception {
         playServiceTest.PlayTurnHuman(2);
@@ -35,7 +34,7 @@ public class PlayServiceTest
         playServiceTest.PlayTurnHuman(8);
 
         assertEquals(0, playServiceTest.PlayTurnHuman(9));
-    }*/
+    }
 
     @Test
     public void testInvalidPlayerChoiceInput() throws Exception {
@@ -45,5 +44,5 @@ public class PlayServiceTest
     @Test
     public void testValidPlayerChoiceInput() throws Exception {
         assertEquals(true, playServiceTest.validatePlayerInput(5));
-    }
+    }*/
 }
