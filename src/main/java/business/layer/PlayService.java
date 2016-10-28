@@ -111,7 +111,7 @@ public class PlayService {
         boolean cont = false;
         while (cont == false) {
             int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-            if (!board[i].equals(playerChar.O.toString()) || !board[i].equals(playerChar.X.toString())){
+            if (!board[i].equals(playerChar.O.toString()) && !board[i].equals(playerChar.X.toString())){
                 board[i] = currentPlayer.toString();
                 cont = true;
             }
