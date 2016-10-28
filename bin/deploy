@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cp build/libs/tictactoe-1.0-SNAPSHOT.jar bin/tmp
-./gradlew run
+cp build/libs/tictactoe-1.0-SNAPSHOT.jar ./build/tmp/tmp.jar
