@@ -193,6 +193,9 @@ public class PlayService {
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
         }
+        else{
+            currentPlayer = playerChar.X;
+        }
     }
 
     protected void makeMove(int place){
