@@ -26,7 +26,7 @@ public class PlayService {
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
-    
+
     public void playGame()
     {
         mainInterface.printWelcomeMessage();

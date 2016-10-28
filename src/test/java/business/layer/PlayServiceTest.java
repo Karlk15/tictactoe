@@ -12,18 +12,6 @@ public class PlayServiceTest
     PlayService playServiceTest = new PlayService();
 
     @Test
-    public void testArraySize()
-    {
-        assertEquals(9, playServiceTest.getSize());
-    }
-
-    @Test
-    public void testNextInput() {
-        assertEquals("1", playServiceTest.getNext(0));
-        assertEquals("5", playServiceTest.getNext(4));
-    }
-
-    @Test
     public void testResultsForPlayerOneWinHorizontal(){
         PlayService playServiceTest1 = new PlayService();
         playServiceTest1.board[0] = "X";

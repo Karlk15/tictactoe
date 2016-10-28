@@ -25,8 +25,6 @@ public class Interface {
     public String getPlayerName(){
         Scanner reader = new Scanner(System.in);
         String playerName = reader.nextLine();
-        reader.close();
-
         return playerName;
     }
     public int getPlayerChoice(){
@@ -49,8 +47,6 @@ public class Interface {
     public static String getMenuInput(){
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
-        reader.close();
-
         return input;
     }
 

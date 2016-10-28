@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = "ui.layer.Interface"
+mainClassName = "business.layer.PlayService.java"
 
 sourceCompatibility = 1.8
 
@@ -17,7 +17,7 @@ dependencies {
 
 jar{
     manifest {
-    	attributes("Main-Class": "ui.layer.Interface")
+    	attributes("Main-Class": "business.layer.PlayService.java")
     }
 }
 
