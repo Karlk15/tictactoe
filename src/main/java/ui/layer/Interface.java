@@ -22,7 +22,7 @@ public class Interface {
         System.out.println("╚════╩══════════════════════════╝");
         System.out.print("Enter your choice: ");
     }
-    private String getPlayerName(){
+    public String getPlayerName(){
         Scanner reader = new Scanner(System.in);
         String playerName = reader.nextLine();
         reader.close();
@@ -46,7 +46,7 @@ public class Interface {
         }
     }
 
-    private static String getMenuInput(){
+    public static String getMenuInput(){
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
         reader.close();
@@ -67,5 +67,13 @@ public class Interface {
     public void printResults(String winner) {
         System.out.println("GAME OVER");
         System.out.println("Winner is " + winner + "!");
+    }
+
+    public void printInsertName(String number){
+        System.out.println("Enter player " + number + "name:");
+    }
+
+    public void printDraw(){
+        System.out.println("Sorry it's a draw!");
     }
 }

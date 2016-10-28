@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by Hrafnkell on 26/10/2016.
  */
 public class PlayService {
-    public enum playerChar {
+    private enum playerChar {
         X, O
     }
 
@@ -22,50 +22,86 @@ public class PlayService {
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
+        mainInterface = new Interface();
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
-
-    public int getSize() {
-        return 9;
-    }
-
-    public String getNext(int next) {
-        return board[next];
-    }
-
+    
     public void playGame()
     {
-
+        mainInterface.printWelcomeMessage();
+        mainInterface.printMainMenu();
+        String getChoice;
+        boolean checkChoice = true;
+        do{
+            getChoice = mainInterface.getMenuInput();
+            if(getChoice == "1"){
+                OnePlayerGame();
+            }
+            else if(getChoice == "2"){
+                TwoPlayerGame();
+            }
+            else if(getChoice == "q"){
+                checkChoice = false;
+                //print thanks for playing!
+            }
+            else{
+                mainInterface.printWrongInput();
+            }
+        }while(checkChoice);
     }
 
     public void OnePlayerGame(){
-        do
-        {
-            PlayTurnComputer();
+        mainInterface.printInsertName("1");
+        player1 = new Player(mainInterface.getPlayerName(), 1, true);
+        player1 = new Player("PC Principal", 2, false);
+        int results = -1;
+        do {
             PlayTurnHuman();
+            results = results();
+            if (results == 1 || results == 0){
+                checkResults(results, player1);
+                break;
+            }
+            togglePlayer();
+            PlayTurnComputer();
+            results = results();
+            checkResults(results, player1);
+            togglePlayer();
         }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
-        player1 = new Player("Name1 gotten from interface", 1, true);
-        player2 = new Player("Name2 gotten from interface", 2, true);
+        mainInterface.printInsertName("1");
+        player1 = new Player(mainInterface.getPlayerName(), 1, true);
+        mainInterface.printInsertName("2");
+        player2 = new Player(mainInterface.getPlayerName(), 2, true);
         int results = -1;
         do{
-
-        }while(results() == -1);
+            PlayTurnHuman();
+            results = results();
+            if(currentPlayer == currentPlayer.X){
+                checkResults(results, player1);
+            }
+            else{
+                checkResults(results, player2);
+            }
+            togglePlayer();
+        }while(results == -1);
     }
 
     public void PlayTurnHuman (){
         int input;
         do{
             input = mainInterface.getPlayerChoice();
+            if(!validatePlayerInput(input)){
+                mainInterface.printWrongInput();
+            }
         }while(!validatePlayerInput(input));
-        /*
-        To do rest of turn
-         */
+        makeMove(input);
         int res = results();
     }
+
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
@@ -78,6 +114,12 @@ public class PlayService {
         }
         int res = results();
     }
+
+    public static void main(String[] args){
+        PlayService ps = new PlayService();
+        ps.playGame();
+    }
+
     // if current player wins, return 1
     // if game should go on, return -1
     // if game is a draw, return 0
@@ -145,6 +187,37 @@ public class PlayService {
 
         if (currentPlayer == playerChar.X){
             currentPlayer = playerChar.O;
+        }
+    }
+
+    protected void makeMove(int place){
+        board[place] = currentPlayer.toString();
+    }
+
+    protected void checkResults(int res, Player currentPlayer){
+        if(res == -1){
+
+        }
+        else if(res == 1){
+            mainInterface.printResults(currentPlayer.getPlayerName());
+            String input = mainInterface.printContinuePlaying();
+            if(input == "y"){
+                playGame();
+            }
+        }
+        else if(res == 0){
+            mainInterface.printDraw();
+            String input = mainInterface.printContinuePlaying();;
+            while(input != "n"){
+                input = mainInterface.getMenuInput();
+                if(input == "y"){
+                    playGame();
+                    break;
+                }
+                else{
+                    mainInterface.printWrongInput();
+                }
+            }
         }
     }
 }
