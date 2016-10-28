@@ -72,8 +72,10 @@ public class PlayService {
             //gets the name for both players
             //need to implement a function in interface to print "Enter name for player i"
         }
-        player1 = new Player("Name1 gotten from interface", 1, true);
-        player2 = new Player("Name2 gotten from interface", 2, true);
+        mainInterface.printInsertName("1");
+        player1 = new Player(mainInterface.getPlayerName(), 1, true);
+        mainInterface.printInsertName("2");
+        player2 = new Player(mainInterface.getPlayerName(), 2, true);
         int results = -1;
         do{
             PlayTurnHuman();
