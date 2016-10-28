@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by Hrafnkell on 26/10/2016.
  */
 public class PlayService {
-    public enum playerChar {
+    private enum playerChar {
         X, O
     }
 
@@ -26,15 +26,7 @@ public class PlayService {
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
-
-    public int getSize() {
-        return 9;
-    }
-
-    public String getNext(int next) {
-        return board[next];
-    }
-
+    
     public void playGame()
     {
         mainInterface.printWelcomeMessage();
