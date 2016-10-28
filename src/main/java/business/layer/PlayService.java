@@ -34,8 +34,18 @@ public class PlayService {
         return board[next];
     }
 
-    public void OnePlayerGame(){
+    public void playGame()
+    {
 
+    }
+
+    public void OnePlayerGame(){
+        do
+        {
+            validatePlayerInput();
+            PlayTurnComputer();
+            PlayTurnHuman();
+        }while (results() == -1);
     }
 
     public void TwoPlayerGame(){
@@ -140,11 +150,4 @@ public class PlayService {
             currentPlayer = playerChar.O;
         }
     }
-
-    public void playGame()
-    {
-
-    }
-
-
 }
