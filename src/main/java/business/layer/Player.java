@@ -14,14 +14,14 @@ public class Player
     {
         if(!isHuman)
         {
-            playerName = "Computer McConaughey";
+            this.playerName = "Computer McConaughey";
         }
         else
         {
             this.playerName = name;
         }
         this.playerNumber = number;
-        humanPlayer = isHuman;
+        this.humanPlayer = isHuman;
     }
 
     public String getPlayerName()
