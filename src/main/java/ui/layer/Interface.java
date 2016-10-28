@@ -25,7 +25,6 @@ public class Interface {
     public String getPlayerName(){
         Scanner reader = new Scanner(System.in);
         String playerName = reader.nextLine();
-        reader.close();
 
         return playerName;
     }
@@ -44,12 +43,12 @@ public class Interface {
                 System.out.print("\n");
             }
         }
+        System.out.println();
     }
 
     public static String getMenuInput(){
         Scanner reader = new Scanner(System.in);
         String input = reader.nextLine();
-        reader.close();
 
         return input;
     }
@@ -71,6 +70,10 @@ public class Interface {
 
     public void printInsertName(String number){
         System.out.println("Enter player " + number + "name:");
+    }
+
+    public void printComputerTurnFinished(){
+        System.out.println("The Computer has made it's turn");
     }
 
     public void printDraw(){

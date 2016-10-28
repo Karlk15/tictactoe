@@ -35,13 +35,13 @@ public class PlayService {
         boolean checkChoice = true;
         do{
             getChoice = mainInterface.getMenuInput();
-            if(getChoice == "1"){
+            if(getChoice.equals("1")){
                 OnePlayerGame();
             }
-            else if(getChoice == "2"){
+            else if(getChoice.equals("2")){
                 TwoPlayerGame();
             }
-            else if(getChoice == "q"){
+            else if(getChoice.equals("q")){
                 checkChoice = false;
                 //print thanks for playing!
             }
@@ -56,6 +56,7 @@ public class PlayService {
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
         player1 = new Player("PC Principal", 2, false);
         int results = -1;
+        mainInterface.displayBoard(board);
         do {
             PlayTurnHuman();
             results = results();
@@ -63,10 +64,13 @@ public class PlayService {
                 checkResults(results, player1);
                 break;
             }
+            mainInterface.displayBoard(board);
             togglePlayer();
             PlayTurnComputer();
             results = results();
             checkResults(results, player1);
+            mainInterface.printComputerTurnFinished();
+            mainInterface.displayBoard(board);
             togglePlayer();
         }while (results() == -1);
     }
@@ -77,7 +81,9 @@ public class PlayService {
         mainInterface.printInsertName("2");
         player2 = new Player(mainInterface.getPlayerName(), 2, true);
         int results = -1;
+        mainInterface.displayBoard(board);
         do{
+            mainInterface.displayBoard(board);
             PlayTurnHuman();
             results = results();
             if(currentPlayer == currentPlayer.X){
@@ -109,7 +115,6 @@ public class PlayService {
             if (!board[i].equals(playerChar.O) || !board[i].equals(playerChar.X)){
                 board[i] = currentPlayer.toString();
                 cont = true;
-                togglePlayer();
             }
         }
         int res = results();
@@ -191,7 +196,7 @@ public class PlayService {
     }
 
     protected void makeMove(int place){
-        board[place] = currentPlayer.toString();
+        board[place - 1] = currentPlayer.toString();
     }
 
     protected void checkResults(int res, Player currentPlayer){
