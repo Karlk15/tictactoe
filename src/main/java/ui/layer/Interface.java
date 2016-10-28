@@ -2,54 +2,59 @@ package ui.layer;
 
 import business.layer.PlayService;
 
+import java.util.Scanner;
+import java.util.concurrent.SynchronousQueue;
+
 /**
  * Created by Hrafnkell on 26/10/2016.
  */
 public class Interface {
 
-    private static PlayService playService;
-
-    public static void main(String args[]){
+    /**
+     * Need to figure out where what class the main function should be.
+     */
+    /*public static void main(String args[]){
         playService = new PlayService();
-        menu();
-    }
+        System.out.println("    Welcome to tic-tac-toe!"); //temp location for this print
+        mainMenu();
+    }*/
 
-    public static void menu(){
-        boolean cont = true;
-        System.out.println("Welcome to tic-tac-toe!");
+    public static String mainMenu(){
 
-        while (cont == true) {
-            System.out.println("Enter '1P' to play against the computer, and '2P' to play against an opponent");
+        System.out.println("+------------------------------+");
+        System.out.println("|Please select an option below |");
+        System.out.println("+------------------------------+");
+        System.out.println("|1 -- play against the computer|");
+        System.out.println("|2 -- play against an opponent |");
+        System.out.println("|Q -- quit the game            |");
+        System.out.println("+------------------------------+");
+        System.out.print("Enter your choice: ");
 
-            String input = System.in.toString();
-            displayBoard();
+        String input = getUserInput();
 
-            if (input == "1P"){
-
-            }
-            else if (input == "2P"){
-
-            }
-            else{
-                System.out.println("Enter a valid input, please.");
-            }
-            System.out.println("Do you want to play another game? (y/n)");
-            String in = System.in.toString();
-            if (in != "y|Y"){
-                cont = false;
-            }
-        }
-
+        return input;
 
     }
 
-    public static void displayBoard(){
+    public static void displayBoard(String[] board){
 
-        for (int i = 0; i < playService.getSize(); i++){
-            System.out.print(playService.getNext(i) + " ");
+        for (int i = 0; i < board.length; i++){
+            System.out.print(board[i] + " ");
             if ((i + 1) % 3 == 0){
                 System.out.print("\n");
             }
         }
+    }
+
+    private static String getUserInput(){
+        Scanner reader = new Scanner(System.in);
+        String input = reader.nextLine();
+        reader.close();
+
+        return input;
+    }
+
+    public static String printWelcomeMessage(){
+        return "    Welcome to tic-tac-toe!"; //temp location for this print
     }
 }
