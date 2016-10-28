@@ -66,13 +66,6 @@ public class PlayService {
          */
         int res = results();
     }
-    private String getPlayerName(){
-        Scanner reader = new Scanner(System.in);
-        String playerName = reader.nextLine();
-        reader.close();
-
-        return playerName;
-    }
     public void PlayTurnComputer(){
         boolean cont = false;
         while (cont == false) {
