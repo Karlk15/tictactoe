@@ -67,7 +67,7 @@ public class Interface {
     }
 
     public void printInsertName(String number){
-        System.out.println("Enter player " + number + "name:");
+        System.out.println("Enter player " + number + " name:");
     }
 
     public void printComputerTurnFinished(){
@@ -75,6 +75,6 @@ public class Interface {
     }
 
     public void printDraw(){
-        System.out.println("Sorry it's a draw!");
+        System.out.println("Sorry, it's a draw!");
     }
 }
