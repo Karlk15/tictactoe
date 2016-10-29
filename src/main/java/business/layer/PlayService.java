@@ -19,6 +19,11 @@ public class PlayService {
     private Player player1;
     private Player player2;
 
+    public static void main(String[] args){
+        PlayService ps = new PlayService();
+        ps.playGame();
+    }
+
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
@@ -54,7 +59,7 @@ public class PlayService {
     public void OnePlayerGame(){
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
-        player2 = new Player("PC Principal", 2, false);
+        player2 = new Player("", 2, false);
         int results = -1;
         mainInterface.displayBoard(board);
         do {
@@ -73,6 +78,7 @@ public class PlayService {
             mainInterface.displayBoard(board);
             togglePlayer();
         }while (results() == -1);
+        playGame();
     }
 
     public void TwoPlayerGame(){
@@ -94,6 +100,7 @@ public class PlayService {
             mainInterface.displayBoard(board);
             togglePlayer();
         }while(results == -1);
+        playGame();
     }
 
     public void PlayTurnHuman (){
@@ -116,11 +123,6 @@ public class PlayService {
                 cont = true;
             }
         }
-    }
-
-    public static void main(String[] args){
-        PlayService ps = new PlayService();
-        ps.playGame();
     }
 
     // if current player wins, return 1
