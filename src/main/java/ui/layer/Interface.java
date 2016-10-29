@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Interface {
 
 
-    public String printWelcomeMessage(){
-        return "    Welcome to tic-tac-toe!";
+    public void printWelcomeMessage(){
+        System.out.println("     Welcome to tic-tac-toe!");
     }
 
     public void printMainMenu(){
