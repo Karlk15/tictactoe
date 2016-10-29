@@ -78,7 +78,6 @@ public class PlayService {
             mainInterface.displayBoard(board);
             togglePlayer();
         }while (results() == -1);
-        playGame();
     }
 
     public void TwoPlayerGame(){
@@ -100,7 +99,6 @@ public class PlayService {
             mainInterface.displayBoard(board);
             togglePlayer();
         }while(results == -1);
-        playGame();
     }
 
     public void PlayTurnHuman (){
@@ -203,31 +201,19 @@ public class PlayService {
     }
 
     protected void checkResults(int res, Player currentPlayer){
+        PlayService newPS = new PlayService();
         if(res == -1){
 
         }
         else if(res == 1){
             mainInterface.displayBoard(board);
             mainInterface.printResults(currentPlayer.getPlayerName());
-            String input = mainInterface.printContinuePlaying();
-            if(input == "y"){
-                playGame();
-            }
+            newPS.playGame();
         }
         else if(res == 0){
             mainInterface.displayBoard(board);
             mainInterface.printDraw();
-            String input = mainInterface.printContinuePlaying();;
-            while(input != "n"){
-                input = mainInterface.getMenuInput();
-                if(input == "y"){
-                    playGame();
-                    break;
-                }
-                else{
-                    mainInterface.printWrongInput();
-                }
-            }
+            newPS.playGame();
         }
     }
 }
