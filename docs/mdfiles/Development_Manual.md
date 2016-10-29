@@ -1,6 +1,5 @@
 Development Manual
 ==================
-------------------------
 ## Purpose:
 - To help new team members get acquainted to the project's development enviroment.
 - Which tools to install and how to use them.
@@ -11,6 +10,7 @@ Development Manual
 - [Pandoc](http://kevin.deldycke.com/2012/01/how-to-generate-pdf-markdown/) needs to be installed as well.
 - [Intellij 2.4.](https://www.jetbrains.com/idea/?fromMenu) is used as the main idea of the project. It is recomended that you install Intellij for code editing and easy running of the app but is not necessary for building and testing the code which [Gradle](https://gradle.org/) handles automatically.
 - A [Github](https://github.com/) account is required for the source control purposes.
+
 #### Note for Windows users:
 - To be able to run JRE from anywhere in your computer you need to first add [Java enviroment variables.](http://stackoverflow.com/questions/1672281/environment-variables-for-java-installation).
 - We higly recommend that install and use [Git Bash](https://git-scm.com/downloads) for building, testing, running and all git related uses.
