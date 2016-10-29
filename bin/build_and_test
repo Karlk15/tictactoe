@@ -1,5 +1,5 @@
 #!/bin/bash
 
-./bin/clean
-./bin/build
-./bin/test
+./gradlew clean
+./gradlew build
+./gradlew test
