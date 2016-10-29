@@ -67,4 +67,25 @@ public class PlayServiceTest
         assertEquals(true, playServiceTest.validatePlayerInput(3));
         assertEquals(true, playServiceTest.validatePlayerInput(9));
     }
+
+    @Test
+    public void testTogglePlayerCorrect(){
+        playServiceTest.togglePlayer();
+        assertEquals(PlayService.playerChar.O, playServiceTest.currentPlayer);
+    }
+    
+    @Test
+    public void testMakeFourMoves(){
+        playServiceTest.makeMove(3);
+        playServiceTest.togglePlayer();
+        playServiceTest.makeMove(5);
+        playServiceTest.togglePlayer();
+        playServiceTest.makeMove(1);
+        playServiceTest.togglePlayer();
+        playServiceTest.makeMove(8);
+        assertEquals("X", playServiceTest.board[2]);
+        assertEquals("O", playServiceTest.board[4]);
+        assertEquals("X", playServiceTest.board[0]);
+        assertEquals("O", playServiceTest.board[7]);
+    }
 }

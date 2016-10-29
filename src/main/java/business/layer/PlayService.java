@@ -9,13 +9,13 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by Hrafnkell on 26/10/2016.
  */
 public class PlayService {
-    private enum playerChar {
+    protected enum playerChar {
         X, O
     }
 
     private Interface mainInterface;
     protected String[] board;
-    private playerChar currentPlayer;
+    protected playerChar currentPlayer;
     private Player player1;
     private Player player2;
 
