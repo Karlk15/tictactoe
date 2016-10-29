@@ -73,7 +73,7 @@ public class PlayServiceTest
         playServiceTest.togglePlayer();
         assertEquals(PlayService.playerChar.O, playServiceTest.currentPlayer);
     }
-    
+
     @Test
     public void testMakeFourMoves(){
         playServiceTest.makeMove(3);
