@@ -3,4 +3,6 @@
 ./gradlew clean
 ./gradlew build
 ./gradlew test
+
 ./gradlew jacocoTestReport
+#pandoc README.md -o ./docs/htmldocs/README.html
