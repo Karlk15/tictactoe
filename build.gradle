@@ -45,3 +45,8 @@ jacocoTestReport {
         html.destination "${buildDir}/jacocoHtml"
     }
 }
+
+deploy:
+provider: heroku
+api_key:
+secure: "f19eccb8-3b39-4ddf-903b-8883647d1939"
