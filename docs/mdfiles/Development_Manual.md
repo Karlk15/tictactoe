@@ -1,6 +1,5 @@
 Development Manual
 ==================
-------------------------
 ## Purpose:
 - To help new team members get acquainted to the project's development enviroment.
 - Which tools to install and how to use them.
