@@ -9,13 +9,14 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by Hrafnkell on 26/10/2016.
  */
 public class PlayService {
-    private enum playerChar {
+
+    protected enum playerChar {
         X, O
     }
 
     private Interface mainInterface;
     protected String[] board;
-    private playerChar currentPlayer;
+    protected playerChar currentPlayer;
     private Player player1;
     private Player player2;
 
@@ -24,6 +25,11 @@ public class PlayService {
         ps.playGame();
     }
 
+    /**
+        public constructor for PlayService
+        initializes the board, sets currentplayer to X
+        and creates a new interface
+     */
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
@@ -32,6 +38,11 @@ public class PlayService {
             board[i] = Integer.toString(i + 1);
     }
 
+    /**
+     * The main function for this TicTacToe program
+     * Calls the needed interface functions to print the main menu
+     * and initializes a new game based on the player choice
+     */
     public void playGame()
     {
         mainInterface.printWelcomeMessage();
@@ -56,6 +67,11 @@ public class PlayService {
         }while(checkChoice);
     }
 
+    /**
+     * The main function for a one player game.
+     * Plays through one human turn and automates one computer turn
+     * Also let's the human player choose his name
+     */
     public void OnePlayerGame(){
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
@@ -80,6 +96,11 @@ public class PlayService {
         }while (results() == -1);
     }
 
+    /**
+     * The main function for a two player game
+     * Plays through two human turns
+     * Also lets the two players choose their name
+     */
     public void TwoPlayerGame(){
         mainInterface.printInsertName("1");
         player1 = new Player(mainInterface.getPlayerName(), 1, true);
@@ -123,9 +144,10 @@ public class PlayService {
         }
     }
 
-    // if current player wins, return 1
-    // if game should go on, return -1
-    // if game is a draw, return 0
+    /**
+     * Checks whether the game is over or not and returns the results
+     * @return 1 if the game is a win, 0 if it's a draw, -1 if the game isn't over
+     */
     protected int results() {
 
         int rowCount = 0;
@@ -174,6 +196,11 @@ public class PlayService {
         return -1;
     }
 
+    /**
+     * validates the input taken from the player
+     * @param char_input the input taken from the player
+     * @return true if the input is a valid move, false if it isn't
+     */
     protected boolean validatePlayerInput(int char_input){
         if(char_input < 1 || char_input > 9){
             return false;
@@ -186,6 +213,9 @@ public class PlayService {
         }
     }
 
+    /**
+     * changes the player from X to O or vice versa
+     */
     protected void togglePlayer() {
 
         if (currentPlayer == playerChar.X){
@@ -196,10 +226,20 @@ public class PlayService {
         }
     }
 
+    /**
+     * makes the move the player choose
+     * @param place the placement to be made
+     */
     protected void makeMove(int place){
         board[place - 1] = currentPlayer.toString();
     }
 
+    /**
+     * Checks if the result is a win and calls the interface to print
+     * necessary results
+     * @param res was the result a win, draw or a loss
+     * @param currentPlayer the player who made the final move
+     */
     protected void checkResults(int res, Player currentPlayer){
         PlayService newPS = new PlayService();
         if(res == -1){
