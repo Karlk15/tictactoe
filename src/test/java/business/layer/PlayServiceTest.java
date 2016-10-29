@@ -57,4 +57,14 @@ public class PlayServiceTest
         playServiceTest3.board[7] = "X";
         assertEquals(1, playServiceTest3.results());
     }
+    @Test
+    public void testValidatePlayerInputWrongInput(){
+        assertEquals(false, playServiceTest.validatePlayerInput(99));
+        assertEquals(false, playServiceTest.validatePlayerInput(-345));
+    }
+    @Test
+    public void testValidatePlayerInputCorrectInput(){
+        assertEquals(true, playServiceTest.validatePlayerInput(3));
+        assertEquals(true, playServiceTest.validatePlayerInput(9));
+    }
 }
