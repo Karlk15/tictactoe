@@ -11,5 +11,6 @@ Administration manual
 - We higly recommend that install and use [Git Bash](https://git-scm.com/downloads)  for running the program.
 
 ## Download and run the game
+- The project is located at [https://github.com/valdimar94/tictactoe.git](``` https://github.com/valdimar94/tictactoe.git ```).
 - The newest version of the game can be download-ed is located in the TicTacToeGame/ directory.
 - To the run the executable *tictactoe.jar*, use the following command from your terminal/git bash: ```java -jar tictactoe.jar ```.
