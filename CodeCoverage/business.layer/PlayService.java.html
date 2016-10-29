@@ -134,15 +134,15 @@ public class PlayService {
 <span class="nc" id="L134">    }</span>
 
     public void PlayTurnComputer(){
-<span class="nc" id="L137">        boolean cont = false;</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">        while (cont == false) {</span>
-<span class="nc" id="L139">            int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);</span>
-<span class="nc bnc" id="L140" title="All 4 branches missed.">            if (!board[i].equals(playerChar.O.toString()) &amp;&amp; !board[i].equals(playerChar.X.toString())){</span>
-<span class="nc" id="L141">                board[i] = currentPlayer.toString();</span>
-<span class="nc" id="L142">                cont = true;</span>
+<span class="fc" id="L137">        boolean cont = false;</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        while (cont == false) {</span>
+<span class="fc" id="L139">            int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);</span>
+<span class="pc bpc" id="L140" title="2 of 4 branches missed.">            if (!board[i].equals(playerChar.O.toString()) &amp;&amp; !board[i].equals(playerChar.X.toString())){</span>
+<span class="fc" id="L141">                board[i] = currentPlayer.toString();</span>
+<span class="fc" id="L142">                cont = true;</span>
             }
-<span class="nc" id="L144">        }</span>
-<span class="nc" id="L145">    }</span>
+<span class="fc" id="L144">        }</span>
+<span class="fc" id="L145">    }</span>
 
     /**
      * Checks whether the game is over or not and returns the results
