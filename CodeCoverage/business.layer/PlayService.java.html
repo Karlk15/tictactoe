@@ -14,135 +14,45 @@ public class PlayService {
 <span class="fc" id="L14">        X, O</span>
     }
 
-    private Interface mainInterface;
     protected String[] board;
     protected playerChar currentPlayer;
     private Player player1;
     private Player player2;
-
-    public static void main(String[] args){
-<span class="nc" id="L24">        PlayService ps = new PlayService();</span>
-<span class="nc" id="L25">        ps.playGame();</span>
-<span class="nc" id="L26">    }</span>
 
     /**
         public constructor for PlayService
         initializes the board, sets currentplayer to X
         and creates a new interface
      */
-<span class="fc" id="L33">    public PlayService() {</span>
-<span class="fc" id="L34">        board = new String[9];</span>
-<span class="fc" id="L35">        currentPlayer = currentPlayer.X;</span>
-<span class="fc" id="L36">        mainInterface = new Interface();</span>
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = 0; i &lt; 9; i++)</span>
-<span class="fc" id="L38">            board[i] = Integer.toString(i + 1);</span>
-<span class="fc" id="L39">    }</span>
+<span class="fc" id="L27">    public PlayService() {</span>
+<span class="fc" id="L28">        board = new String[9];</span>
+<span class="fc" id="L29">        currentPlayer = currentPlayer.X;</span>
+<span class="fc" id="L30">        player1 = new Player(&quot;Player 1: Ron Swanson&quot;, 1, true);</span>
+<span class="fc" id="L31">        player2 = new Player(&quot;Player 2: Dwight Schrute&quot;, 2, true);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int i = 0; i &lt; 9; i++)</span>
+<span class="fc" id="L33">            board[i] = Integer.toString(i + 1);</span>
+<span class="fc" id="L34">    }</span>
 
-    /**
-     * The main function for this TicTacToe program
-     * Calls the needed interface functions to print the main menu
-     * and initializes a new game based on the player choice
-     */
-    public void playGame()
-    {
-<span class="nc" id="L48">        mainInterface.printWelcomeMessage();</span>
-<span class="nc" id="L49">        mainInterface.printMainMenu();</span>
-        String getChoice;
-<span class="nc" id="L51">        boolean checkChoice = true;</span>
+    public void PlayTurn (int input){
         do{
-<span class="nc" id="L53">            getChoice = mainInterface.getMenuInput();</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">            if(getChoice.equals(&quot;1&quot;)){</span>
-<span class="nc" id="L55">                OnePlayerGame();</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            if(!validatePlayerInput(input)){</span>
+                // display to player he did a dumb thing
             }
-<span class="nc bnc" id="L57" title="All 2 branches missed.">            else if(getChoice.equals(&quot;2&quot;)){</span>
-<span class="nc" id="L58">                TwoPlayerGame();</span>
-            }
-<span class="nc bnc" id="L60" title="All 2 branches missed.">            else if(getChoice.equals(&quot;q&quot;)){</span>
-<span class="nc" id="L61">                checkChoice = false;</span>
-                //print thanks for playing!
-            }
-            else{
-<span class="nc" id="L65">                mainInterface.printWrongInput();</span>
-            }
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        }while(checkChoice);</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        }while(!validatePlayerInput(input));</span>
+<span class="nc" id="L42">        makeMove(input);</span>
+<span class="nc" id="L43">        int results = results();</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if(currentPlayer == currentPlayer.X){</span>
+<span class="nc" id="L45">            checkResults(results);</span>
+        }
+        else{
+<span class="nc" id="L48">            checkResults(results);</span>
+        }
+<span class="nc" id="L50">        togglePlayer();</span>
+<span class="nc" id="L51">    }</span>
 
-    /**
-     * The main function for a one player game.
-     * Plays through one human turn and automates one computer turn
-     * Also let's the human player choose his name
-     */
-    public void OnePlayerGame(){
-<span class="nc" id="L76">        mainInterface.printInsertName(&quot;1&quot;);</span>
-<span class="nc" id="L77">        player1 = new Player(mainInterface.getPlayerName(), 1, true);</span>
-<span class="nc" id="L78">        player2 = new Player(&quot;&quot;, 2, false);</span>
-<span class="nc" id="L79">        int results = -1;</span>
-<span class="nc" id="L80">        mainInterface.displayBoard(board);</span>
-        do {
-<span class="nc" id="L82">            PlayTurnHuman();</span>
-<span class="nc" id="L83">            results = results();</span>
-<span class="nc bnc" id="L84" title="All 4 branches missed.">            if (results == 1 || results == 0){</span>
-<span class="nc" id="L85">                checkResults(results, player1);</span>
-<span class="nc" id="L86">                break;</span>
-            }
-<span class="nc" id="L88">            mainInterface.displayBoard(board);</span>
-<span class="nc" id="L89">            togglePlayer();</span>
-<span class="nc" id="L90">            PlayTurnComputer();</span>
-<span class="nc" id="L91">            results = results();</span>
-<span class="nc" id="L92">            checkResults(results, player2);</span>
-<span class="nc" id="L93">            mainInterface.printComputerTurnFinished();</span>
-<span class="nc" id="L94">            mainInterface.displayBoard(board);</span>
-<span class="nc" id="L95">            togglePlayer();</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        }while (results() == -1);</span>
-<span class="nc" id="L97">    }</span>
-
-    /**
-     * The main function for a two player game
-     * Plays through two human turns
-     * Also lets the two players choose their name
-     */
-    public void TwoPlayerGame(){
-<span class="nc" id="L105">        mainInterface.printInsertName(&quot;1&quot;);</span>
-<span class="nc" id="L106">        player1 = new Player(mainInterface.getPlayerName(), 1, true);</span>
-<span class="nc" id="L107">        mainInterface.printInsertName(&quot;2&quot;);</span>
-<span class="nc" id="L108">        player2 = new Player(mainInterface.getPlayerName(), 2, true);</span>
-<span class="nc" id="L109">        int results = -1;</span>
-<span class="nc" id="L110">        mainInterface.displayBoard(board);</span>
-        do{
-<span class="nc" id="L112">            PlayTurnHuman();</span>
-<span class="nc" id="L113">            results = results();</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">            if(currentPlayer == currentPlayer.X){</span>
-<span class="nc" id="L115">                checkResults(results, player1);</span>
-            }
-            else{
-<span class="nc" id="L118">                checkResults(results, player2);</span>
-            }
-<span class="nc" id="L120">            mainInterface.displayBoard(board);</span>
-<span class="nc" id="L121">            togglePlayer();</span>
-<span class="nc bnc" id="L122" title="All 2 branches missed.">        }while(results == -1);</span>
-<span class="nc" id="L123">    }</span>
-
-    public void PlayTurnHuman (){
-        int input;
-        do{
-<span class="nc" id="L128">            input = mainInterface.getPlayerChoice();</span>
-<span class="nc bnc" id="L129" title="All 2 branches missed.">            if(!validatePlayerInput(input)){</span>
-<span class="nc" id="L130">                mainInterface.printWrongInput();</span>
-            }
-<span class="nc bnc" id="L132" title="All 2 branches missed.">        }while(!validatePlayerInput(input));</span>
-<span class="nc" id="L133">        makeMove(input);</span>
-<span class="nc" id="L134">    }</span>
-
-    public void PlayTurnComputer(){
-<span class="fc" id="L137">        boolean cont = false;</span>
-<span class="fc bfc" id="L138" title="All 2 branches covered.">        while (cont == false) {</span>
-<span class="fc" id="L139">            int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);</span>
-<span class="pc bpc" id="L140" title="2 of 4 branches missed.">            if (!board[i].equals(playerChar.O.toString()) &amp;&amp; !board[i].equals(playerChar.X.toString())){</span>
-<span class="fc" id="L141">                board[i] = currentPlayer.toString();</span>
-<span class="fc" id="L142">                cont = true;</span>
-            }
-<span class="fc" id="L144">        }</span>
-<span class="fc" id="L145">    }</span>
+    public String[] getBoard(){
+<span class="nc" id="L54">        return board;</span>
+    }
 
     /**
      * Checks whether the game is over or not and returns the results
@@ -150,50 +60,50 @@ public class PlayService {
      */
     protected int results() {
 
-<span class="fc" id="L153">        int rowCount = 0;</span>
+<span class="fc" id="L63">        int rowCount = 0;</span>
 
-<span class="fc bfc" id="L155" title="All 2 branches covered.">        for (int m = 0; m &lt; board.length; m++){</span>
-<span class="fc bfc" id="L156" title="All 4 branches covered.">            if (board[m].equals(playerChar.O.toString()) || board[m].equals(playerChar.X.toString())){</span>
-<span class="fc" id="L157">                rowCount++;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for (int m = 0; m &lt; board.length; m++){</span>
+<span class="fc bfc" id="L66" title="All 4 branches covered.">            if (board[m].equals(playerChar.O.toString()) || board[m].equals(playerChar.X.toString())){</span>
+<span class="fc" id="L67">                rowCount++;</span>
             }
         }
-<span class="fc bfc" id="L160" title="All 2 branches covered.">        if (rowCount == 9){</span>
-<span class="fc" id="L161">            return 0;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (rowCount == 9){</span>
+<span class="fc" id="L71">            return 0;</span>
         }
-<span class="fc" id="L163">        rowCount = 0;</span>
+<span class="fc" id="L73">        rowCount = 0;</span>
 
-<span class="fc bfc" id="L165" title="All 2 branches covered.">        for (int i = 0; i &lt; board.length; i++){</span>
-<span class="fc bfc" id="L166" title="All 2 branches covered.">            if (board[i].equals(currentPlayer.toString())){</span>
-<span class="fc" id="L167">                rowCount++;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int i = 0; i &lt; board.length; i++){</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (board[i].equals(currentPlayer.toString())){</span>
+<span class="fc" id="L77">                rowCount++;</span>
             }
-<span class="fc bfc" id="L169" title="All 4 branches covered.">            if (rowCount % 3 == 0 &amp;&amp; rowCount != 0) {</span>
-<span class="fc" id="L170">                return 1;</span>
+<span class="fc bfc" id="L79" title="All 4 branches covered.">            if (rowCount % 3 == 0 &amp;&amp; rowCount != 0) {</span>
+<span class="fc" id="L80">                return 1;</span>
             }
-<span class="pc bpc" id="L172" title="1 of 4 branches missed.">            if (((i + 1) % 3) == 0 &amp;&amp; i != 0) {</span>
-<span class="fc" id="L173">                rowCount = 0;</span>
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">            if (((i + 1) % 3) == 0 &amp;&amp; i != 0) {</span>
+<span class="fc" id="L83">                rowCount = 0;</span>
             }
         }
-<span class="fc" id="L176">        rowCount = 0;</span>
+<span class="fc" id="L86">        rowCount = 0;</span>
 
-<span class="fc bfc" id="L178" title="All 2 branches covered.">        for (int j = 0; j &lt; board.length; j+= 3){</span>
-<span class="fc bfc" id="L179" title="All 2 branches covered.">            if (board[j].equals(currentPlayer.toString())){</span>
-<span class="fc" id="L180">                rowCount++;</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (int j = 0; j &lt; board.length; j+= 3){</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            if (board[j].equals(currentPlayer.toString())){</span>
+<span class="fc" id="L90">                rowCount++;</span>
             }
-<span class="fc bfc" id="L182" title="All 4 branches covered.">            if (rowCount % 3 == 0 &amp;&amp; rowCount != 0){</span>
-<span class="fc" id="L183">                return 1;</span>
+<span class="fc bfc" id="L92" title="All 4 branches covered.">            if (rowCount % 3 == 0 &amp;&amp; rowCount != 0){</span>
+<span class="fc" id="L93">                return 1;</span>
             }
-<span class="fc bfc" id="L185" title="All 4 branches covered.">            if (j &gt;= 6 &amp;&amp; j &lt;= 7){</span>
-<span class="fc" id="L186">                j -= 8;</span>
-<span class="fc" id="L187">                rowCount = 0;</span>
+<span class="fc bfc" id="L95" title="All 4 branches covered.">            if (j &gt;= 6 &amp;&amp; j &lt;= 7){</span>
+<span class="fc" id="L96">                j -= 8;</span>
+<span class="fc" id="L97">                rowCount = 0;</span>
             }
         }
-<span class="pc bpc" id="L190" title="3 of 6 branches missed.">        if (board[0].equals(currentPlayer.toString()) &amp;&amp; board[4].equals(currentPlayer.toString()) &amp;&amp; board[8].equals(currentPlayer.toString())){</span>
-<span class="fc" id="L191">            return 1;</span>
+<span class="pc bpc" id="L100" title="3 of 6 branches missed.">        if (board[0].equals(currentPlayer.toString()) &amp;&amp; board[4].equals(currentPlayer.toString()) &amp;&amp; board[8].equals(currentPlayer.toString())){</span>
+<span class="fc" id="L101">            return 1;</span>
         }
-<span class="nc bnc" id="L193" title="All 6 branches missed.">        if (board[2].equals(currentPlayer.toString()) &amp;&amp; board[4].equals(currentPlayer.toString()) &amp;&amp; board[6].equals(currentPlayer.toString())){</span>
-<span class="nc" id="L194">            return 1;</span>
+<span class="nc bnc" id="L103" title="All 6 branches missed.">        if (board[2].equals(currentPlayer.toString()) &amp;&amp; board[4].equals(currentPlayer.toString()) &amp;&amp; board[6].equals(currentPlayer.toString())){</span>
+<span class="nc" id="L104">            return 1;</span>
         }
-<span class="nc" id="L196">        return -1;</span>
+<span class="nc" id="L106">        return -1;</span>
     }
 
     /**
@@ -202,14 +112,14 @@ public class PlayService {
      * @return true if the input is a valid move, false if it isn't
      */
     protected boolean validatePlayerInput(int char_input){
-<span class="fc bfc" id="L205" title="All 4 branches covered.">        if(char_input &lt; 1 || char_input &gt; 9){</span>
-<span class="fc" id="L206">            return false;</span>
+<span class="fc bfc" id="L115" title="All 4 branches covered.">        if(char_input &lt; 1 || char_input &gt; 9){</span>
+<span class="fc" id="L116">            return false;</span>
         }
-<span class="pc bpc" id="L208" title="1 of 2 branches missed.">        else if(!board[char_input-1].equals(Integer.toString(char_input))){</span>
-<span class="nc" id="L209">            return false;</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        else if(!board[char_input-1].equals(Integer.toString(char_input))){</span>
+<span class="nc" id="L119">            return false;</span>
         }
         else{
-<span class="fc" id="L212">            return true;</span>
+<span class="fc" id="L122">            return true;</span>
         }
     }
 
@@ -218,43 +128,43 @@ public class PlayService {
      */
     protected void togglePlayer() {
 
-<span class="fc bfc" id="L221" title="All 2 branches covered.">        if (currentPlayer == playerChar.X){</span>
-<span class="fc" id="L222">            currentPlayer = playerChar.O;</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (currentPlayer == playerChar.X){</span>
+<span class="fc" id="L132">            currentPlayer = playerChar.O;</span>
         }
         else{
-<span class="fc" id="L225">            currentPlayer = playerChar.X;</span>
+<span class="fc" id="L135">            currentPlayer = playerChar.X;</span>
         }
-<span class="fc" id="L227">    }</span>
+<span class="fc" id="L137">    }</span>
 
     /**
      * makes the move the player choose
      * @param place the placement to be made
      */
     protected void makeMove(int place){
-<span class="fc" id="L234">        board[place - 1] = currentPlayer.toString();</span>
-<span class="fc" id="L235">    }</span>
+<span class="fc" id="L144">        board[place - 1] = currentPlayer.toString();</span>
+<span class="fc" id="L145">    }</span>
 
     /**
      * Checks if the result is a win and calls the interface to print
      * necessary results
      * @param res was the result a win, draw or a loss
-     * @param currentPlayer the player who made the final move
      */
-    protected void checkResults(int res, Player currentPlayer){
-<span class="nc" id="L244">        PlayService newPS = new PlayService();</span>
-<span class="nc bnc" id="L245" title="All 2 branches missed.">        if(res == -1){</span>
+    public int checkResults(int res){
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        if(res == -1){</span>
 
         }
-<span class="nc bnc" id="L248" title="All 2 branches missed.">        else if(res == 1){</span>
-<span class="nc" id="L249">            mainInterface.displayBoard(board);</span>
-<span class="nc" id="L250">            mainInterface.printResults(currentPlayer.getPlayerName());</span>
-<span class="nc" id="L251">            newPS.playGame();</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        else if(res == 1){</span>
+<span class="nc" id="L157">            restartGame();</span>
+<span class="nc" id="L158">            return 1;</span>
+
         }
-<span class="nc bnc" id="L253" title="All 2 branches missed.">        else if(res == 0){</span>
-<span class="nc" id="L254">            mainInterface.displayBoard(board);</span>
-<span class="nc" id="L255">            mainInterface.printDraw();</span>
-<span class="nc" id="L256">            newPS.playGame();</span>
-        }
-<span class="nc" id="L258">    }</span>
+<span class="nc" id="L161">        restartGame();</span>
+<span class="nc" id="L162">        return 0;</span>
+    }
+
+    protected void restartGame(){
+<span class="nc" id="L166">        PlayService newPlay = new PlayService();</span>
+<span class="nc" id="L167">        newPlay.PlayTurn(1); // needs to take input from player</span>
+<span class="nc" id="L168">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
