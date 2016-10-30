@@ -46,6 +46,7 @@ Following are the rules we decided to use and a few examples.
 ####Functions
  * Every function name should be made by a descriptive name but not too long
  * They should follow the camelCasing, where the first letter is in lowercase but next words are in uppercase <br />
+
     public void printMainMenu(){
         ...
     }
@@ -53,6 +54,7 @@ Following are the rules we decided to use and a few examples.
 ####Variables
  * Every variable name should be made by nouns or nounphrases
  * They should also follow the camelCasing rule, if necessary <br />
+
     int playerCount = 10;
 
 ####Brackets
@@ -64,6 +66,7 @@ Following are the rules we decided to use and a few examples.
  * Classes and functions should be commented above them by double slash or //
  * Variables should be commented at the end of their declaration by double slash or //
  * If comment needs more than one line, use the example below: <br />
+
     /**
      * The main function for a one player game.
      * Plays through one human turn and automates one computer turn
