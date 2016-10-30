@@ -1,5 +1,7 @@
 package ui.layer;
 
+import spark.servlet.SparkApplication;
+
 import java.util.Scanner;
 
 /**
