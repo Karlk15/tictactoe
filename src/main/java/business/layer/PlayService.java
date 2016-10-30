@@ -14,16 +14,10 @@ public class PlayService {
         X, O
     }
 
-    private Interface mainInterface;
     protected String[] board;
     protected playerChar currentPlayer;
     private Player player1;
     private Player player2;
-
-    public static void main(String[] args){
-        PlayService ps = new PlayService();
-        ps.playGame();
-    }
 
     /**
         public constructor for PlayService
@@ -33,115 +27,31 @@ public class PlayService {
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
-        mainInterface = new Interface();
+        player1 = new Player("Player 1: Ron Swanson", 1, true);
+        player2 = new Player("Player 2: Dwight Schrute", 2, true);
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
 
-    /**
-     * The main function for this TicTacToe program
-     * Calls the needed interface functions to print the main menu
-     * and initializes a new game based on the player choice
-     */
-    public void playGame()
-    {
-        mainInterface.printWelcomeMessage();
-        mainInterface.printMainMenu();
-        String getChoice;
-        boolean checkChoice = true;
+    public void PlayTurn (int input){
         do{
-            getChoice = mainInterface.getMenuInput();
-            if(getChoice.equals("1")){
-                OnePlayerGame();
-            }
-            else if(getChoice.equals("2")){
-                TwoPlayerGame();
-            }
-            else if(getChoice.equals("q")){
-                checkChoice = false;
-                //print thanks for playing!
-            }
-            else{
-                mainInterface.printWrongInput();
-            }
-        }while(checkChoice);
-    }
-
-    /**
-     * The main function for a one player game.
-     * Plays through one human turn and automates one computer turn
-     * Also let's the human player choose his name
-     */
-    public void OnePlayerGame(){
-        mainInterface.printInsertName("1");
-        player1 = new Player(mainInterface.getPlayerName(), 1, true);
-        player2 = new Player("", 2, false);
-        int results = -1;
-        mainInterface.displayBoard(board);
-        do {
-            PlayTurnHuman();
-            results = results();
-            if (results == 1 || results == 0){
-                checkResults(results, player1);
-                break;
-            }
-            mainInterface.displayBoard(board);
-            togglePlayer();
-            PlayTurnComputer();
-            results = results();
-            checkResults(results, player2);
-            mainInterface.printComputerTurnFinished();
-            mainInterface.displayBoard(board);
-            togglePlayer();
-        }while (results() == -1);
-    }
-
-    /**
-     * The main function for a two player game
-     * Plays through two human turns
-     * Also lets the two players choose their name
-     */
-    public void TwoPlayerGame(){
-        mainInterface.printInsertName("1");
-        player1 = new Player(mainInterface.getPlayerName(), 1, true);
-        mainInterface.printInsertName("2");
-        player2 = new Player(mainInterface.getPlayerName(), 2, true);
-        int results = -1;
-        mainInterface.displayBoard(board);
-        do{
-            PlayTurnHuman();
-            results = results();
-            if(currentPlayer == currentPlayer.X){
-                checkResults(results, player1);
-            }
-            else{
-                checkResults(results, player2);
-            }
-            mainInterface.displayBoard(board);
-            togglePlayer();
-        }while(results == -1);
-    }
-    // comment bc of branch
-    public void PlayTurnHuman (){
-        int input;
-        do{
-            input = mainInterface.getPlayerChoice();
             if(!validatePlayerInput(input)){
-                mainInterface.printWrongInput();
+                // display to player he did a dumb thing
             }
         }while(!validatePlayerInput(input));
         makeMove(input);
+        int results = results();
+        if(currentPlayer == currentPlayer.X){
+            checkResults(results);
+        }
+        else{
+            checkResults(results);
+        }
+        togglePlayer();
     }
 
-    public void PlayTurnComputer(){
-        boolean cont = false;
-        while (cont == false) {
-            int i = ThreadLocalRandom.current().nextInt(0, 8 + 1);
-            if (!board[i].equals(playerChar.O.toString()) && !board[i].equals(playerChar.X.toString())){
-                board[i] = currentPlayer.toString();
-                cont = true;
-            }
-        }
+    public String[] getBoard(){
+        return board;
     }
 
     /**
@@ -238,22 +148,22 @@ public class PlayService {
      * Checks if the result is a win and calls the interface to print
      * necessary results
      * @param res was the result a win, draw or a loss
-     * @param currentPlayer the player who made the final move
      */
-    protected void checkResults(int res, Player currentPlayer){
-        PlayService newPS = new PlayService();
+    public int checkResults(int res){
         if(res == -1){
 
         }
         else if(res == 1){
-            mainInterface.displayBoard(board);
-            mainInterface.printResults(currentPlayer.getPlayerName());
-            newPS.playGame();
+            restartGame();
+            return 1;
+
         }
-        else if(res == 0){
-            mainInterface.displayBoard(board);
-            mainInterface.printDraw();
-            newPS.playGame();
-        }
+        restartGame();
+        return 0;
+    }
+
+    protected void restartGame(){
+        PlayService newPlay = new PlayService();
+        newPlay.PlayTurn(1); // needs to take input from player
     }
 }

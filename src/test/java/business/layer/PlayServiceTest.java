@@ -88,16 +88,4 @@ public class PlayServiceTest
         assertEquals("X", playServiceTest.board[0]);
         assertEquals("O", playServiceTest.board[7]);
     }
-
-    @Test
-    public void testComputerMove(){
-        playServiceTest.PlayTurnComputer();
-        boolean checkMove = false;
-        for(int i = 0; i < 9; i++){
-            if(playServiceTest.board[i].equals("X")){
-                checkMove = true;
-            }
-        }
-        assertEquals(true, checkMove);
-    }
 }
