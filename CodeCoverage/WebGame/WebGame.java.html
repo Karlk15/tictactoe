@@ -9,12 +9,19 @@ import spark.servlet.SparkApplication;
  */
 <span class="nc" id="L10">public class WebGame implements SparkApplication{</span>
     public static void main(String[] args){
-<span class="nc" id="L12">        get(&quot;/hello&quot;, (req, res) -&gt; &quot;Hello World&quot;);</span>
-<span class="nc" id="L13">    }</span>
+<span class="nc" id="L12">        staticFileLocation(&quot;/public&quot;);</span>
+<span class="nc" id="L13">        SparkApplication WebGame = new WebGame();</span>
+
+<span class="nc" id="L15">        String port = System.getenv(&quot;PORT&quot;);</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (port != null) {</span>
+<span class="nc" id="L17">            port(Integer.valueOf(port));</span>
+        }
+<span class="nc" id="L19">        WebGame.init();</span>
+<span class="nc" id="L20">    }</span>
 
     @Override
     public void init(){
-
-<span class="nc" id="L18">    }</span>
+<span class="nc" id="L24">        get(&quot;/temp&quot;, (req, res) -&gt; &quot;This is a temp test&quot;);</span>
+<span class="nc" id="L25">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

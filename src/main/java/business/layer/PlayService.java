@@ -24,7 +24,7 @@ public class PlayService {
      */
     public PlayService() {
         board = new String[9];
-        currentPlayer = currentPlayer.X;
+        currentPlayer = playerChar.X;
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
@@ -50,11 +50,20 @@ public class PlayService {
         return board;
     }
 
+    public int getPlayer(){
+        if(currentPlayer == playerChar.X){
+            return 1;
+        }
+        else{
+            return 2;
+        }
+    }
+
     /**
      * Checks whether the game is over or not and returns the results
      * @return 1 if the game is a win, 0 if it's a draw, -1 if the game isn't over
      */
-    protected int results() {
+    public int results() {
 
         int rowCount = 0;
 
@@ -158,7 +167,7 @@ public class PlayService {
         return 0;
     }
 
-    protected void restartGame(){
+    public void restartGame(){
         PlayService newPlay = new PlayService();
         newPlay.PlayTurn(1); // needs to take input from player
     }
