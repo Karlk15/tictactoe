@@ -19,7 +19,4 @@ hs_err_pid*
 build/*
 .gradle/*
 tex2pdf.*/*
-CodeCoverage/business.layer/*
-CodeCoverage/jacoco-resources/*
-CodeCoverage/ui.layer/*
 
