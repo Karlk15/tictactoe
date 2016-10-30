@@ -22,3 +22,4 @@ Development Manual
 - [Travis CI](https://travis-ci.org/valdimar94/tictactoe/builds) is used as for continuous integration.
 - To the run the executable file located in *TicTacToe/tictactoe.jar*, use the following command from your terminal/git bash: ```java -jar tictactoe.jar ```.
 - The projects newest statistics on code coverage can be found in CodeCoverage/index.html on the repository after every build and commit. Please open the index.html file with your prefered web browser to observe the stats.
+- If you make changes to the manuals or readme file, you need to run ==bin/mdConverter== script before commiting to the master branch

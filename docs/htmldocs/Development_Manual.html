@@ -1,0 +1,28 @@
+<h1 id="development-manual">Development Manual</h1>
+<h2 id="purpose">Purpose:</h2>
+<ul>
+<li>To help new team members get acquainted to the project's development enviroment.</li>
+<li>Which tools to install and how to use them.</li>
+</ul>
+<h2 id="which-tools-need-to-be-pre-installed">Which tools need to be pre-installed</h2>
+<ul>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java JDK-8</a> needs to be installed for compilation of java code.</li>
+<li>Make sure that <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">Java Runtime Envioroment(JRE)</a> is also installed on your computer to be able to run .jar files.</li>
+<li><a href="http://kevin.deldycke.com/2012/01/how-to-generate-pdf-markdown/">Pandoc</a> needs to be installed as well.</li>
+<li><a href="https://www.jetbrains.com/idea/?fromMenu">Intellij 2.4.</a> is used as the main idea of the project. It is recomended that you install Intellij for code editing and easy running of the app but is not necessary for building and testing the code which <a href="https://gradle.org/">Gradle</a> handles automatically.</li>
+<li>A <a href="https://github.com/">Github</a> account is required for the source control purposes.</li>
+</ul>
+<h4 id="note-for-windows-users">Note for Windows users:</h4>
+<ul>
+<li>To be able to run JRE from anywhere in your computer you need to first add <a href="http://stackoverflow.com/questions/1672281/environment-variables-for-java-installation">Java enviroment variables.</a>.</li>
+<li>We higly recommend that install and use <a href="https://git-scm.com/downloads">Git Bash</a> for building, testing, running and all git related uses.</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<ul>
+<li>Firstly clone the repository to you local drive by running the the following command on your terminal/git bash <code>https://github.com/valdimar94/tictactoe.git</code></li>
+<li>After you have been added as a collaborator to the projects repository you need to accept the invitation in your notifications window.</li>
+<li><strong>Before every</strong> push to master you need to run the following scripts from the projects root directory: ==bin/build_and_test== and ==bin/deploy==. If all gradle task builds are succefull you may push to the master.</li>
+<li><a href="https://travis-ci.org/valdimar94/tictactoe/builds">Travis CI</a> is used as for continuous integration.</li>
+<li>To the run the executable file located in <em>TicTacToe/tictactoe.jar</em>, use the following command from your terminal/git bash: <code>java -jar tictactoe.jar</code>.</li>
+<li>The projects newest statistics on code coverage can be found in CodeCoverage/index.html on the repository after every build and commit. Please open the index.html file with your prefered web browser to observe the stats.</li>
+</ul>
