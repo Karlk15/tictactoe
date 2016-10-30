@@ -17,8 +17,8 @@ The purpose with this assignment is to set up technical infrastructure that supp
 ###Class Diagram
 We made a simple class diagram that displays the inital class design and will therefore most likely change something over the time during development. Still, it gives the reader 
 a good insight into how the system will work. Below is our class diagram.
-
-Class diagram image
+<br />
+![Class diagram](/docs/mdfiles/ClassDiagram.jpg)
 
 ###Overview
  * The game is written in Java and implemented by Test Driven Development (TDD) techniques.
@@ -35,22 +35,38 @@ found the standards for each programming language and adjusted them to us.
 Following are the rules we decided to use and a few examples.
 
 ####Classes
- * test
- * test
- * test
+ * Every class name is made by nouns or nounphrases 
+ * They should follow the PascalCasing rule, where every word is capitalized
+    public class PlayerService(){
+        ...
+    }
+
 ####Functions
- * test
- * test
- * test
+ * Every function name should be made by a descriptive name but not too long
+ * They should follow the camelCasing, where the first letter is in lowercase but next words are in uppercase
+    public void printMainMenu(){
+        ...
+    }
+
 ####Variables
- * test
- * test
- * test
+ * Every variable name should be made by nouns or nounphrases
+ * They should also follow the camelCasing rule, if necessary
+    int playerCount = 10;
+
 ####Brackets
- * test
- * test
- * test
+ * The brackets are supposed to be opened at the end of the class/function
+ * The brackets are supposed to be closed below the class/function in a new line
+
 ####Comments
- * test
- * test
- * test
+ * If your not sure whether something needs explanation, it is best explain what is going on with a comment
+ * Classes and functions should be commented above them by double slash or //
+ * Variables should be commented at the end of their declaration by double slash or //
+ * If comment needs more than one line, use the example below:
+    /**
+     * The main function for a one player game.
+     * Plays through one human turn and automates one computer turn
+     * also let's the human player choose his name
+     */
+    public void OnePlayerGame(){
+        ...
+    }
