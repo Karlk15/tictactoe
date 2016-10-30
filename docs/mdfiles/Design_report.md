@@ -40,17 +40,21 @@ Following are the rules we decided to use and a few examples.
  * Every class name is made by nouns or nounphrases 
  * They should follow the PascalCasing rule, where every word is capitalized 
 
-    public class PlayerService(){
-        ...
-    }
+```
+public class PlayerService(){
+...
+}
+```
 
 ####Functions
  * Every function name should be made by a descriptive name but not too long
  * They should follow the camelCasing, where the first letter is in lowercase but next words are in uppercase <br />
 
-    public void printMainMenu(){
-        ...
-    }
+```
+public void printMainMenu(){
+...
+}
+```
 
 ####Variables
  * Every variable name should be made by nouns or nounphrases
