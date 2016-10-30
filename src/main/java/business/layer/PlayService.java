@@ -16,8 +16,6 @@ public class PlayService {
 
     protected String[] board;
     protected playerChar currentPlayer;
-    private Player player1;
-    private Player player2;
 
     /**
         public constructor for PlayService
@@ -27,8 +25,6 @@ public class PlayService {
     public PlayService() {
         board = new String[9];
         currentPlayer = currentPlayer.X;
-        player1 = new Player("Player 1: Ron Swanson", 1, true);
-        player2 = new Player("Player 2: Dwight Schrute", 2, true);
         for (int i = 0; i < 9; i++)
             board[i] = Integer.toString(i + 1);
     }
