@@ -5,3 +5,8 @@ before_install:
 
 jdk:
   - oraclejdk8
+
+install: true
+
+scripts:
+  ./gradlew build
