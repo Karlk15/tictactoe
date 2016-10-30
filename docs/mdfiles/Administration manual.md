@@ -12,5 +12,7 @@ Administration manual
 
 ## Download and run the game
 - The project is located at [https://github.com/valdimar94/tictactoe.git](``` https://github.com/valdimar94/tictactoe.git ```).
-- The newest version of the game can be download-ed is located in the TicTacToeGame/ directory.
+- Clone the repository to you local drive.
+- Run the ```bin/deploy``` script to get the newest version of the game.
+- The .jar file will be generated in the directory above your project´s directory.
 - To the run the executable *tictactoe.jar*, use the following command from your terminal/git bash: ```java -jar tictactoe.jar ```.
