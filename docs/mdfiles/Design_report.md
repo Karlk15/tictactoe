@@ -60,7 +60,9 @@ public void printMainMenu(){
  * Every variable name should be made by nouns or nounphrases
  * They should also follow the camelCasing rule, if necessary <br />
 
+```
     int playerCount = 10;
+```
 
 ####Brackets
  * The brackets are supposed to be opened at the end of the class/function
@@ -72,11 +74,13 @@ public void printMainMenu(){
  * Variables should be commented at the end of their declaration by double slash or //
  * If comment needs more than one line, use the example below: <br />
 
-    /**
-     * The main function for a one player game.
-     * Plays through one human turn and automates one computer turn
-     * also let's the human player choose his name
-     */
-    public void OnePlayerGame(){
-        ...
-    }
+```
+/**
+ * The main function for a one player game.
+ * Plays through one human turn and automates one computer turn
+ * also let's the human player choose his name
+ */
+public void OnePlayerGame(){
+...
+}
+```
