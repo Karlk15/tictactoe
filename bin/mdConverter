@@ -3,4 +3,4 @@
 pandoc ./README.md -o docs/htmldocs/README.html
 pandoc ./docs/mdfiles/Development_Manual.md -o docs/htmldocs/Development_Manual.html
 pandoc ./docs/mdfiles/Administration\ manual.md -o docs/htmldocs/Administration_Manual.html
-
+pandoc ./docs/mdfiles/Design_report.md -o docs/htmldocs/Design_report.html
