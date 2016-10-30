@@ -5,3 +5,8 @@ before_install:
 
 jdk:
   - oraclejdk8
+
+deploy:
+  provider: heroku
+  app: tictactoe
+  api_key: "f19eccb8-3b39-4ddf-903b-8883647d1939"
