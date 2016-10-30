@@ -8,7 +8,7 @@ who has never heard of it. <br />
 The game is simple. Two players, X and O, take turns marking the spaces in a 3x3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical or
 diagonal row wins the game. The following example game is won by the player X.
 <br />
-![alt text] (https://github.com/valdimar94/tictactoe/docs/mdfiles/X_wins.jpg)
+![Tic-tac-toe example](/docs/mdfiles/X_wins.jpg)
 
 The purpose with this assignment is to set up technical infrastructure that supports agile development. This report describes our 
 
@@ -35,22 +35,22 @@ found the standards for each programming language and adjusted them to us.
 Following are the rules we decided to use and a few examples.
 
 ####Classes
- * 
- * 
- *
+ * test
+ * test
+ * test
 ####Functions
- * 
- *
- * 
+ * test
+ * test
+ * test
 ####Variables
- * 
- *
- *
+ * test
+ * test
+ * test
 ####Brackets
- *
- *
- *
+ * test
+ * test
+ * test
 ####Comments
- * 
- *
- *
+ * test
+ * test
+ * test
