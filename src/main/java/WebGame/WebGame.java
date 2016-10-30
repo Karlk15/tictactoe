@@ -1,5 +1,7 @@
 package WebGame;
 
+import spark.*;
+import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
 /**
@@ -7,7 +9,7 @@ import spark.servlet.SparkApplication;
  */
 public class WebGame implements SparkApplication{
     public static void main(String[] args){
-
+        get("/hello", (req, res) -> "Hello World");
     }
 
     @Override
