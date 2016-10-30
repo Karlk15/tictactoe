@@ -38,8 +38,7 @@ Following are the rules we decided to use and a few examples.
 
 ####Classes
  * Every class name is made by nouns or nounphrases 
- * They should follow the PascalCasing rule, where every word is capitalized <br />
-    public class PlayerService(){
+ * They should follow the PascalCasing rule, where every word is capitalized <br />    public class PlayerService(){
         ...
     }
 
