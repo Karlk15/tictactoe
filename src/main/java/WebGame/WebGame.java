@@ -9,7 +9,7 @@ import spark.servlet.SparkApplication;
  */
 public class WebGame implements SparkApplication{
     public static void main(String[] args){
-        get("/hello", (req, res) -> "Hello World");
+        get("/braaahhh", (req, res) -> "Hello World bits");
     }
 
     @Override
