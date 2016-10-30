@@ -4,24 +4,37 @@ import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
+import business.layer.PlayService;
+
 /**
  * Created by ArnarFreyr on 10/30/2016.
  */
-<span class="nc" id="L10">public class WebGame implements SparkApplication{</span>
+<span class="nc" id="L12">public class WebGame implements SparkApplication{</span>
     public static void main(String[] args){
-<span class="nc" id="L12">        staticFileLocation(&quot;/public&quot;);</span>
-<span class="nc" id="L13">        SparkApplication WebGame = new WebGame();</span>
+<span class="nc" id="L14">        staticFileLocation(&quot;/public&quot;);</span>
+<span class="nc" id="L15">        SparkApplication webGame = new WebGame();</span>
 
-<span class="nc" id="L15">        String port = System.getenv(&quot;PORT&quot;);</span>
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (port != null) {</span>
-<span class="nc" id="L17">            port(Integer.valueOf(port));</span>
-        }
-<span class="nc" id="L19">        WebGame.init();</span>
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L17">        webGame.init();</span>
+<span class="nc" id="L18">    }</span>
 
     @Override
     public void init(){
-<span class="nc" id="L24">        get(&quot;/temp&quot;, (req, res) -&gt; &quot;This is a temp test&quot;);</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L22">        PlayService PS = new PlayService();</span>
+<span class="nc" id="L23">        get(&quot;/getBoard&quot;, (request, response) -&gt; {</span>
+<span class="nc" id="L24">            response.status(100);</span>
+<span class="nc" id="L25">            return PS.getBoard();</span>
+        });
+
+<span class="nc" id="L28">        get(&quot;/getPlayer&quot;, (request, response) -&gt;{</span>
+<span class="nc" id="L29">           response.status(100);</span>
+<span class="nc" id="L30">            return PS.getPlayer();</span>
+        });
+
+<span class="nc" id="L33">        post(&quot;/restart&quot;, (request, response) -&gt; {</span>
+<span class="nc" id="L34">            PS.restartGame();</span>
+<span class="nc" id="L35">            response.status(100);</span>
+<span class="nc" id="L36">            return PS.getBoard();</span>
+        });
+<span class="nc" id="L38">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

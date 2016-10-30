@@ -15,7 +15,6 @@ public class WebGame implements SparkApplication{
         SparkApplication webGame = new WebGame();
 
         webGame.init();
-
     }
 
     @Override
