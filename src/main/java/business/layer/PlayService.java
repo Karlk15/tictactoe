@@ -49,22 +49,23 @@ public class PlayService {
         mainInterface.printMainMenu();
         String getChoice;
         boolean checkChoice = true;
-        do{
-            getChoice = mainInterface.getMenuInput();
-            if(getChoice.equals("1")){
-                OnePlayerGame();
+        getChoice = mainInterface.getMenuInput();
+        while (checkChoice == true){
+            if (getChoice.equals("q")){
+                checkChoice = false;  
+                System.exit(0);   
             }
             else if(getChoice.equals("2")){
                 TwoPlayerGame();
             }
-            else if(getChoice.equals("q")){
-                checkChoice = false;
-                //print thanks for playing!
+            else if(getChoice.equals("1")){
+                OnePlayerGame();
             }
             else{
                 mainInterface.printWrongInput();
+                getChoice = mainInterface.getMenuInput();
             }
-        }while(checkChoice);
+        }
     }
 
     /**

@@ -2,13 +2,13 @@
 <h2 id="tic-tac-toe">Tic Tac Toe</h2>
 <h2 id="introduction">Introduction</h2>
 <p>The Tic-tac-toe game is an ancient game that first appeared in the time of the Roman Empire. Since then it has spread around the world and today it is hard to find someone who has never heard of it. <br /> The game is simple. Two players, X and O, take turns marking the spaces in a 3x3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical or diagonal row wins the game. The following example game is won by the player X. <br /> <img src="/docs/mdfiles/X_wins.jpg" alt="Tic-tac-toe example" /></p>
-<p>The purpose with this assignment is to set up technical infrastructure that supports agile development. This report describes our</p>
+<p>The purpose with this assignment is to set up technical infrastructure that supports agile development. We will use the Test Driven Development (TDD) that can be described as a technique where you must first write a test that fails before you write new functional code. It is a process that relies on the repetition of a very short development cycle. When a new functionality is finished sucessfully we will commit the code and then refactor it if neccessary.</p>
 <h2 id="initial-design">Initial design</h2>
 <h3 id="class-diagram">Class Diagram</h3>
 <p>We made a simple class diagram that displays the inital class design and will therefore most likely change something over the time during development. Still, it gives the reader a good insight into how the system will work. Below is our class diagram. <br /> <img src="/docs/mdfiles/ClassDiagram.jpg" alt="Class diagram" /></p>
 <h3 id="overview">Overview</h3>
 <ul>
-<li>The game is written in Java and implemented by Test Driven Development (TDD) techniques.</li>
+<li>The game is written in Java.</li>
 <li>The source control is hosted in Github.</li>
 <li>For organizing workflow we will use Trello.</li>
 <li>The code will be written mainly in IntelliJ IDEA and Sublime Text 2.</li>
@@ -20,18 +20,25 @@
 <h4 id="classes">Classes</h4>
 <ul>
 <li>Every class name is made by nouns or nounphrases</li>
-<li>They should follow the PascalCasing rule, where every word is capitalized public class PlayerService(){ ... }</li>
+<li>They should follow the PascalCasing rule, where every word is capitalized</li>
 </ul>
+<pre><code>public class PlayerService(){
+...
+}</code></pre>
 <h4 id="functions">Functions</h4>
 <ul>
 <li>Every function name should be made by a descriptive name but not too long</li>
-<li>They should follow the camelCasing, where the first letter is in lowercase but next words are in uppercase public void printMainMenu(){ ... }</li>
+<li>They should follow the camelCasing, where the first letter is in lowercase but next words are in uppercase <br /></li>
 </ul>
+<pre><code>public void printMainMenu(){
+...
+}</code></pre>
 <h4 id="variables">Variables</h4>
 <ul>
 <li>Every variable name should be made by nouns or nounphrases</li>
-<li>They should also follow the camelCasing rule, if necessary int playerCount = 10;</li>
+<li>They should also follow the camelCasing rule, if necessary <br /></li>
 </ul>
+<pre><code>    int playerCount = 10;</code></pre>
 <h4 id="brackets">Brackets</h4>
 <ul>
 <li>The brackets are supposed to be opened at the end of the class/function</li>
@@ -42,10 +49,13 @@
 <li>If your not sure whether something needs explanation, it is best explain what is going on with a comment</li>
 <li>Classes and functions should be commented above them by double slash or //</li>
 <li>Variables should be commented at the end of their declaration by double slash or //</li>
-<li>If comment needs more than one line, use the example below: /**
-<ul>
-<li>The main function for a one player game.</li>
-<li>Plays through one human turn and automates one computer turn</li>
-<li>also let's the human player choose his name */ public void OnePlayerGame(){ ... }</li>
-</ul></li>
+<li>If comment needs more than one line, use the example below: <br /></li>
 </ul>
+<pre><code>/**
+ * The main function for a one player game.
+ * Plays through one human turn and automates one computer turn
+ * also let&#39;s the human player choose his name
+ */
+public void OnePlayerGame(){
+...
+}</code></pre>
